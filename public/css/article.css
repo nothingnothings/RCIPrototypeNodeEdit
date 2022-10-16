@@ -1,0 +1,9 @@
+@media (min-width: 1201px) and (max-width: 2500px) {
+  .text-call-image {
+    height: 430px !important; } }
+
+@media (max-width: 1750px) {
+  .text-call-header {
+    font: normal normal normal 38px/47px Atkinson Hyperlegible; }
+  .text-call__line {
+    font: normal normal normal 18px/24px Atkinson Hyperlegible; } }

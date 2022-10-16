@@ -1,0 +1,18 @@
+// DIRECT-QUOTE SECTION
+
+#direct-quote {
+  background-color: var(--blue);
+}
+
+.direct-quote-transcription--line {
+  margin-bottom: 0;
+  font: normal normal normal 38px/47px Atkinson Hyperlegible;
+  letter-spacing: 0px;
+}
+
+@media (max-width: 576px) {
+  .direct-quote-transcription--line {
+    font: normal normal normal 28px/35px Atkinson Hyperlegible;
+  }
+}
+

@@ -1,0 +1,139 @@
+// FORM
+
+#contact-form {
+  min-height: 70vh;
+  background-color: var(--white-1);
+}
+
+.custom-form-control {
+  resize: none;
+  background-color: var(--white-1);
+  border: none;
+  border-bottom: 2.5px solid var(--grey-1);
+  border-radius: 0;
+  padding: 0;
+}
+
+.custom-form-control-2 {
+  outline: none;
+  background: transparent;
+  border-bottom: var(--light-grey) 2.5px solid;
+  color: var(--light-grey);
+  font: normal normal normal 21px/26px Atkinson Hyperlegible;
+  letter-spacing: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.custom-form-control-2::placeholder {
+  color: var(--light-grey) !important;
+  font: normal normal normal 21px/26px Atkinson Hyperlegible !important;
+  letter-spacing: 0 !important;
+  padding-left: 3rem;
+}
+
+.search-input:focus {
+  background-color: transparent !important;
+  padding-left: 3rem;
+}
+
+.search-input:not(:placeholder-shown) {
+  padding-left: 3rem;
+}
+
+.filter-input:focus {
+  background-color: transparent !important;
+}
+
+.search-input {
+  max-width: 24rem;
+  background-image: url('../images/icons/magnifying-glass-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: left 50%;
+}
+
+.filter-input {
+  max-width: 24rem;
+  background-image: url('../images/icons/feathers.svg');
+  background-repeat: no-repeat;
+  background-size: 26px 26px;
+  background-position: left 50%;
+  padding-left: 3.5rem;
+}
+
+.custom-form-control:focus {
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid var(--grey-1);
+  background-color: var(--white-1);
+}
+
+.custom-form-control::placeholder {
+  color: var(--white-3);
+  font-family: Atkinson Hyperlegible, sans-serif;
+  letter-spacing: 0px;
+  font-size: 21.33px;
+  line-height: 26px;
+  font-weight: normal;
+}
+
+.custom-form-control-label {
+  color: var(--dark);
+  font-family: Atkinson Hyperlegible, sans-serif;
+  letter-spacing: 0px;
+  font-size: 21.33px;
+  line-height: 26px;
+  font-weight: normal;
+  margin-bottom: 1.45rem;
+  margin-top: 1.22rem;
+}
+
+@media (max-width: 564px) {
+  .custom-form-control-label {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.custom-form-textarea {
+  margin-top: 1.5rem;
+}
+
+.custom-select {
+  color: var(--white-3);
+  appearance: none;
+  font: normal normal normal 21px/26px Atkinson Hyperlegible;
+  background-image: url('../images/icons/down-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: 96% 50%;
+  background-size: 24px 24px;
+  margin-top: -0.4rem;
+}
+
+.custom-select:visited {
+  color: var(--dark);
+}
+
+.custom-select option:not(:first-of-type) {
+  color: var(--dark);
+}
+
+.form-button {
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  font-family: Atkinson Hyperlegible, sans-serif;
+  letter-spacing: 0px;
+  font-size: 21.33px;
+  line-height: 26px;
+  font-weight: normal;
+  padding: 0.78rem 4rem;
+  background-color: var(--white-1);
+}
+
+.form-button:hover {
+  color: var(--white);
+  background-color: var(--blue);
+  transition: ease-out 0.3s;
+}

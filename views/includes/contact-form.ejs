@@ -1,0 +1,83 @@
+<section id="contact-form">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="container flex-nowrap mt-5 pt-5">
+                <form action="" class="needs-validation" novalidate>
+                    <div class="row mt-4 mb-5 mb-md-0 pb-5 pb-md-0">
+                        <div class="col-6 pr-5">
+                            <div class="form-group">
+                                <label for="nome" class="custom-form-control-label">Nome*</label>
+                                <input
+                                    name="nome"
+                                    type="text"
+                                    class="form-control custom-form-control"
+                                    required
+                                    placeholder="Nome Sobrenome"
+                                >
+                                <div class="invalid-feedback">Por favor insira seu nome</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="custom-form-control-label">Email*</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control custom-form-control"
+                                    required
+                                    placeholder="nome@empresa.com"
+                                >
+                                <div class="invalid-feedback">Por favor insira seu email</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone" class="custom-form-control-label">Telefone</label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    class="form-control custom-form-control"
+                                    placeholder="(00) 9000-0000"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa" class="custom-form-control-label">Empresa</label>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    class="form-control custom-form-control"
+                                    placeholder="Nome da Empresa"
+                                >
+                            </div>
+                        </div>
+                        <div class="col-6 pl-5">
+                            <div class="form-group">
+                                <label for="motivo" class="custom-form-control-label text-nowrap">Motivo do Contato*</label>
+                                <select class="form-control custom-form-control custom-select" name="reason" required>
+                                    <option value="" selected>Selecione uma opção...</option>
+                                    <option value="informacoes">Informações</option>
+                                    <option value="contratacao">Contratação</option>
+                                    <option value="sugestoes">Sugestões</option>
+                                </select>
+                                <div class="invalid-feedback">Por favor escolha um motivo para o seu contato</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao" class="custom-form-control-label custom-form-textarea text-md-nowrap">Escreva-nos uma mensagem!*</label>
+                                <textarea
+                                    style="margin-top: 0.45rem;"
+                                    class="form-control custom-form-control"
+                                    name="message"
+                                    rows="6"
+                                    placeholder="Escreva sua mensagem aqui..."
+                                    required
+                                ></textarea>
+                                <div class="invalid-feedback">Por favor insira sua mensagem</div>
+                            </div>
+                            <div class="button-wrapper d-flex justify-content-end pt-2">
+                                <button type="submit" class="form-button mt-4 mt-sm-4 mt-md-5">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

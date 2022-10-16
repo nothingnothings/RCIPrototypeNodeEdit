@@ -1,0 +1,40 @@
+.nav-link {
+  color: var(--white);
+  letter-spacing: 0px;
+  font: normal normal normal 21px/26px Atkinson Hyperlegible;
+  font-size: 18px;
+}
+
+//Essential
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+//general positioning
+@import '../node_modules/bootstrap/scss/reboot';
+@import '../node_modules/bootstrap/scss/grid';
+
+//Navbar needs these
+@import '../node_modules/bootstrap/scss/navbar';
+@import '../node_modules/bootstrap/scss/utilities';
+@import '../node_modules/bootstrap/scss/transitions';
+
+//for the images
+@import '../node_modules/bootstrap/scss/images';
+
+@import '../node_modules/bootstrap/scss/forms';
+@import '../node_modules/bootstrap/scss/buttons';
+@import '../node_modules/bootstrap/scss/type';
+
+//for the carousel
+@import '../node_modules/bootstrap/scss/media';
+@import '../node_modules/bootstrap/scss/carousel';
+
+//for the cards
+
+@import '../node_modules/bootstrap/scss/card';
+
+
+
+

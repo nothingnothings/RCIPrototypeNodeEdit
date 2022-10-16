@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+<script src="/js/admin.js" defer></script>
+</head>
+<body>
+        <main class="d-flex flex-column justify-content-center align-items-center login-main" style="height: 100vh !important;">
+                <div class="">
+            <img src="/images/android-chrome-192x192.png"
+                style="height: 100px; width: 100px;"
+                class="mb-5"
+                alt="">
+            </div>
+                <div class="container  d-flex justify-content-center mb-5 pb-5">
+                        <div class="row flex-column login-row">
+                        <div class="col-12 d-flex justify-content-center px-5 pt-3 pb-5">
+                                <form action="/login" class="needs-validation px-5" novalidate>
+               
+                                 
+                                                <div class="form-group text-center">
+                                                    <label for="email" class="custom-form-control-label text-white">Email</label>
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        class="form-control"
+                                                        required
+                                                        placeholder="email@admin.com"
+                                                    >
+                                                    <div class="invalid-feedback text-left text-white">Por favor insira um email</div>
+                                                </div>
+                                                <div class="form-group text-center">
+                                                    <label for="senha" class="custom-form-control-label text-white">Senha</label>
+                                                    <input
+                                                        type="password"
+                                                        name="password"
+                                                        class="form-control"
+                                                        required
+                                                        placeholder="Senha do Admin"
+                                                    >
+                                                    <div class="invalid-feedback text-left text-white">Por favor insira uma senha</div>
+                                                </div>
+                                                <div class="d-flex justify-content-center mt-5">
+                                                <button type="submit" class="form-button login-button">Login</button>
+                                            </div>
+                                    </form>
+                        </div>
+                </div>
+                </div>
+
+        </main>
+        <script>
+            var form = document.querySelector('.needs-validation');
+        
+            form.addEventListener('submit', function(event) {
+        
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+        
+                form.classList.add('was-validated');
+            })
+        </script>
+</body>
