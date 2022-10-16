@@ -6,17 +6,13 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const mongoose = require('mongoose');
 const session = require('express-session');
-
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const flash = require('connect-flash');
 const csrf = require('csurf');
 
 const keys = require('./config/keys');
-
 const keys = 'dummy'
-
-
 const MONGODB_URI = keys.MONGODB_URI;
 
 const store = new MongoDBStore({
@@ -27,7 +23,6 @@ const store = new MongoDBStore({
 const csrfProtection = csrf();
 
 const errorController = require('./controllers/error');
-const indexController = require('./controllers/index');
 const isAuth = require('./middleware/isAuth');
 
 const User = require('./models/user');
