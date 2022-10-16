@@ -12,7 +12,6 @@ const flash = require('connect-flash');
 const csrf = require('csurf');
 
 const keys = require('./config/keys');
-const keys = 'dummy'
 const MONGODB_URI = keys.MONGODB_URI;
 
 const store = new MongoDBStore({
@@ -134,7 +133,5 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-
 
 app.listen(serverPort);
