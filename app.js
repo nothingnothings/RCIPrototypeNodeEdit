@@ -4,25 +4,25 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const multer = require('multer');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const session = require('express-session');
 
-// const MongoDBStore = require('connect-mongodb-session')(session);
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const flash = require('connect-flash');
 const csrf = require('csurf');
 
-// const keys = require('./config/keys');
+const keys = require('./config/keys');
 
 const keys = 'dummy'
 
 
-// const MONGODB_URI = keys.MONGODB_URI;
+const MONGODB_URI = keys.MONGODB_URI;
 
-// const store = new MongoDBStore({
-//   uri: MONGODB_URI,
-//   collection: 'sessions',
-// });
+const store = new MongoDBStore({
+  uri: MONGODB_URI,
+  collection: 'sessions',
+});
 
 const csrfProtection = csrf();
 
@@ -80,47 +80,47 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(
-//   session({
-//     secret: keys.sessionSecret,
-//     resave: false,
-//     saveUninitialized: false,
-//     store: store,
-//   })
-// );
+app.use(
+  session({
+    secret: keys.sessionSecret,
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
 
 app.use(flash());
 
-// app.use((req, res, next) => {
-//   res.locals.isLoggedIn = req.session.isLoggedIn;
+app.use((req, res, next) => {
+  res.locals.isLoggedIn = req.session.isLoggedIn;
 
-//   next();
-// });
+  next();
+});
 
-// app.use((req, _res, next) => {
-//   if (!req.session.user) {
-//     return next();
-//   }
-//   User.findById(req.session.user._id)
-//     .then((user) => {
-//       if (!user) {
-//         return next();
-//       }
-//       req.user = user;
-//       next();
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       next(err);
-//     });
-// });
+app.use((req, _res, next) => {
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
+    .then((user) => {
+      if (!user) {
+        return next();
+      }
+      req.user = user;
+      next();
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+});
 
-// app.use(csrfProtection);
+app.use(csrfProtection);
 
-// app.use((req, res, next) => {
-//   res.locals.csrfToken = req.csrfToken();
-//   next();
-// });
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 // app.use('/admin', adminRoutes);
 app.use(indexRoutes);
@@ -131,14 +131,14 @@ app.use(authRoutes);
 
 const serverPort = 8080;
 
-// mongoose
-//   .connect(MONGODB_URI)
-//   .then((_result) => {
-//     app.listen(process.env.PORT || serverPort);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+mongoose
+  .connect(MONGODB_URI)
+  .then((_result) => {
+    app.listen(process.env.PORT || serverPort);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 
 
