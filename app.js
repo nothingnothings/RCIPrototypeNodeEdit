@@ -78,8 +78,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.post('/banner-edit', (req, res, next) => {
+app.use(csrfProtection);
 
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  console.log(res.locals.csrfToken, 'TOKEN');
+  next();
+});
+
+app.post('/banner-edit', (req, res, next) => {
   console.log(req.body, req.file);
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
@@ -127,13 +134,13 @@ app.use((req, _res, next) => {
     });
 });
 
-app.use(csrfProtection);
+// app.use(csrfProtection);
 
-app.use((req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
-  console.log(res.locals.csrfToken, 'TOKEN');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.csrfToken = req.csrfToken();
+//   console.log(res.locals.csrfToken, 'TOKEN');
+//   next();
+// });
 
 app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
