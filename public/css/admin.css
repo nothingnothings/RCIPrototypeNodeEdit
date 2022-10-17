@@ -1,7 +1,7 @@
 /*
  * Base
  */
-.progress-pekeupload {
+/* .progress-pekeupload {
   width: 100%;
   height: 16px;
   margin: 0 auto 20px auto;
@@ -64,7 +64,7 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #f0f0f0; }
+  background-color: #f0f0f0; } */
 
 .edit-page-navbar {
   padding-top: 0.8rem;
@@ -104,7 +104,7 @@
   background-color: var(--dark);
   transition: 0.3s ease-out; }
 
-.pekeupload-btn-file .pkuparea {
+/* .pekeupload-btn-file .pkuparea {
   color: var(--white) !important; }
 
 .pekeupload-btn-file .pkuparea:hover {
@@ -112,4 +112,4 @@
   color: var(--dark-blue) !important; }
 
 .delbutton .pkdel {
-  color: #e61a1a; }
+  color: #e61a1a; } */
