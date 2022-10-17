@@ -6,7 +6,7 @@ function sendForm(payload) {
       body: payload,
     }
   )
-    .then((response) => {
+    .then((res) => {
       res.json();
     })
     .then((data) => {
