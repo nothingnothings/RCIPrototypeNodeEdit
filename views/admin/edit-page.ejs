@@ -7,7 +7,13 @@
 <body>
     <header>
         <div class="navbar">
-            
+            <nav class="navbar navbar-dark bg-transparent">
+                <div class="ml-auto fake-button">
+                <form action="/banner-edit" method="POST">
+                    <button type="submit" action="/logout" method="POST">Logout</button>
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                </form>
+            </div>
         </div>
     </header>
        <main class="login-main" style="height: 100vh !important;">
