@@ -1,0 +1,70 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/admin.css">
+<script src="/js/admin.js" defer></script>
+<script type="text/javascript" src="js/pekeUpload.js"></script>
+</head>
+<body>
+       
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">
+                        Index Page Banner
+                    </h5>
+                    <div class="card-body">
+                        <div class="card-title">Atualizar banner (arraste uma imagem para o campo):</div>
+                        <input id="file" type="file" name="banner-1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">
+                        Quem Somos Page Banner
+                    </h5>
+                    <div class="card-body">
+                        <div class="card-title">Atualizar banner (arraste uma imagem para o campo):</div>
+                        <input id="file" type="file" name="banner-2" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">
+                        O Que Fazemos Page Banner
+                    </h5>
+                    <div class="card-body">
+                        <div class="card-title">Atualizar banner (arraste uma imagem para o campo):</div>
+                        <input id="file" type="file" name="banner-1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">
+                        RCInsights Page Banner
+                    </h5>
+                    <div class="card-body">
+                        <div class="card-title">Atualizar banner (arraste uma imagem para o campo):</div>
+                        <input id="file" type="file" name="banner-1" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            var form = document.querySelector('.needs-validation');
+        
+            form.addEventListener('submit', function(event) {
+        
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+        
+                form.classList.add('was-validated');
+            })
+        </script>
+</body>
