@@ -16,8 +16,9 @@ exports.bannerPost = (req, res, next) => {
   console.log(validationErrors);
 
   const imageData = req.file;
+  const pageName = req.pageName;
 
-  if (!image) {
+  if (!imageData) {
     return res.status(422).render('admin/edit-page', {
       pageTitle: 'Admin Edit Page',
       path: 'admin/edit-page',
@@ -36,6 +37,20 @@ exports.bannerPost = (req, res, next) => {
       validationErrors: validationErrors,
     });
   }
+
+
+
+  res.redirect('/admin/edit-page', 
+  
+  {
+    pageTitle: 'Admin Edit Page',
+    path: 'admin/edit-page',
+    message: `Banner da Página ${pageName} atualizado com sucesso.`
+  }
+  
+  
+  )
+
 
   // switch (req.pageName) {
   //   case 'banner-1':
