@@ -1,18 +1,18 @@
-function sendForm(payload) {
-  fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', {
-    method: 'POST',
-    body: payload,
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  })
-    .then((res) => {
-      res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
-}
+// function sendForm(payload) {
+//   fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', {
+//     method: 'POST',
+//     body: payload,
+//     headers: {
+//       'Content-Type': 'multipart/form-data',
+//     },
+//   })
+//     .then((res) => {
+//       res.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     });
+// }
 
 var formList = document.querySelectorAll('.needs-validation');
 
@@ -27,6 +27,6 @@ for (form of formList) {
     const formData = new FormData(form);
     const payload = new URLSearchParams(formData);
 
-    sendForm(payload);
+    // sendForm(payload);
   });
 }
