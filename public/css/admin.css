@@ -67,8 +67,8 @@
   background-color: #f0f0f0; }
 
 .edit-page-navbar {
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem; }
 
 .panel {
   background-color: var(--blue);

@@ -124,8 +124,8 @@
 ////NAVBAR
 
 .edit-page-navbar {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 
 ////PANELS
@@ -151,29 +151,22 @@
   letter-spacing: 0px;
 }
 
-
-
-
-
-
 /////LOGOUT BUTTON
 
-
-
 .logout-button {
-    color: var(--dark);
-    font-family: Atkinson Hyperlegible, sans-serif;
-    letter-spacing: 0px;
-    font-size: 21.33px;
-    line-height: 26px;
-    font-weight: normal;
-    padding: 0.4rem 2rem;
-    background-color: var(--white-1);
-    border: none;
+  color: var(--dark);
+  font-family: Atkinson Hyperlegible, sans-serif;
+  letter-spacing: 0px;
+  font-size: 21.33px;
+  line-height: 26px;
+  font-weight: normal;
+  padding: 0.4rem 2rem;
+  background-color: var(--white-1);
+  border: none;
 }
 
 .logout-button:hover {
-    color: var(--white);
-    background-color: var(--dark);
-    transition: 0.3s ease-out;
+  color: var(--white);
+  background-color: var(--dark);
+  transition: 0.3s ease-out;
 }
