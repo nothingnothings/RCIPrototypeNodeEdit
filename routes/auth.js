@@ -7,8 +7,9 @@ const bcrypt = require('bcryptjs');
 
 const authController = require('../controllers/auth');
 const User = require('../models/user');
+const isNotAuth = require('../middleware/isNotAuth');
 
-router.get('/login', authController.getLoginPage);
+router.get('/login', isNotAuth, authController.getLoginPage);
 
 router.post(
   '/login',
@@ -52,10 +53,7 @@ router.post(
   authController.postLogin
 );
 
-router.post(
-  '/signup',
-  authController.postSignup
-);
+router.post('/signup', authController.postSignup);
 
 router.post('/logout', authController.postLogout);
 
