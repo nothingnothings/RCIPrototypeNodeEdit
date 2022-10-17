@@ -99,3 +99,8 @@
   padding: 0.4rem 2rem;
   background-color: var(--white-1);
   border: none; }
+
+.logout-button:hover {
+  color: var(--white);
+  background-color: var(--dark);
+  transition: 0.3s ease-out; }
