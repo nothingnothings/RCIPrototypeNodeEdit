@@ -37,53 +37,53 @@ exports.bannerPost = (req, res, next) => {
     });
   }
 
-  switch (req.pageName) {
-    case 'banner-1':
-      fs.unlink(
-        './images/background-images/Retangulo98.png',
+  // switch (req.pageName) {
+  //   case 'banner-1':
+  //     fs.unlink(
+  //       './images/background-images/Retangulo98.png',
 
-        (err) => {
-          if (err) {
-            console.log(err);
-          }
+  //       (err) => {
+  //         if (err) {
+  //           console.log(err);
+  //         }
 
-          fs.writeFile(
-            './images/background-images/Retangulo98.png',
-            imageData,
+  //         fs.writeFile(
+  //           './images/background-images/Retangulo98.png',
+  //           imageData,
 
-            (err) => {
-              if (err) {
-                throw err;
-              }
-              console.log('File Saved');
-            }
-          );
-        }
-      );
-    case 'banner-2':
-      fs.unlink(
-        './images/background-images/Retangulo99.png',
+  //           (err) => {
+  //             if (err) {
+  //               throw err;
+  //             }
+  //             console.log('File Saved');
+  //           }
+  //         );
+  //       }
+  //     );
+  //   case 'banner-2':
+  //     fs.unlink(
+  //       './images/background-images/Retangulo99.png',
 
-        (err) => {
-          console.log(err);
-        }
-      );
-    case 'banner-3':
-      fs.unlink(
-        './images/background-images/Retangulo100.png',
+  //       (err) => {
+  //         console.log(err);
+  //       }
+  //     );
+  //   case 'banner-3':
+  //     fs.unlink(
+  //       './images/background-images/Retangulo100.png',
 
-        (err) => {
-          console.log(err);
-        }
-      );
-    case 'banner-4':
-      fs.unlink(
-        './images/background-images/Retangulo101.png',
+  //       (err) => {
+  //         console.log(err);
+  //       }
+  //     );
+  //   case 'banner-4':
+  //     fs.unlink(
+  //       './images/background-images/Retangulo101.png',
 
-        (err) => {
-          console.log(err);
-        }
-      );
-    default:
-  }
+  //       (err) => {
+  //         console.log(err);
+  //       }
+  //     );
+  //   default:
+  // }
 };
