@@ -78,6 +78,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use('/banner-edit', (req, res, next) => {
+  console.log(req.body, req.file);
+  upload(req, res, (error) => {
+    if (error instanceof multer.MulterError) {
+      console.log('MULTER ERROR HAS OCCURRED');
+    } else if (error) {
+      console.log('AN UNKNOWN ERROR HAS OCCURRED');
+      console.log(error);
+    }
+  });
+  next();
+});
 
 app.use(
   session({
@@ -124,18 +136,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/banner-edit', (req, res, next) => {
-  console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
-  next();
-});
 
 
 
