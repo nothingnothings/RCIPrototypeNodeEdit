@@ -131,7 +131,7 @@ app.use(csrfProtection);
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
-  console.log(res.locals.csrfToken);
+  console.log(res.locals.csrfToken, 'TOKEN');
   next();
 });
 
