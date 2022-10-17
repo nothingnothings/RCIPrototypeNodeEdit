@@ -178,6 +178,6 @@
 }
 
 .pekeupload-btn-file .pkuparea:hover {
-  text-decoration: none;
-  color: var(--dark-blue);
+  text-decoration: none !important;
+  color: var(--dark-blue) !important;
 }
