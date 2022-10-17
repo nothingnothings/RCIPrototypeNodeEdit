@@ -33,7 +33,7 @@
             data: null,
             limit: 1,
             limitError: "You have reached the limit of files that you can upload",
-            delfiletext: "Remove from queue",
+            delfiletext: "Remove",
             onFileError: function(file, error) {},
             onFileSuccess: function(file, data) {}
         };
