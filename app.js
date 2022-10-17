@@ -123,8 +123,8 @@ app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
 app.use(authRoutes);
 
-// app.get(errorController.error500);
-// app.use(errorController.error404);
+app.get(errorController.error500);
+app.use(errorController.error404);
 
 const serverPort = 8080;
 
