@@ -45,9 +45,9 @@ exports.postLogin = (req, res, next) => {
                 res.redirect('/');
               });
             } else {
-              res.render('admin/edit-sote', {
+              res.render('admin/edit-page', {
                 pageTitle: 'Edit Site',
-                path: 'admin/edit-site',
+                path: 'admin/edit-page',
                 errorMessage: errors.array()[0].msg,
                 oldInput: {
                   email: email,
