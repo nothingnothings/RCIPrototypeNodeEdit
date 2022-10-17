@@ -65,10 +65,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use((req, res, next) => {
+app.post('/banner-image', (req, res, next) => {
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
+      console.log('MULTER ERROR HAS OCCURRED');
     } else if (error) {
+      console.log('AN UNKNOWN ERROR HAS OCCURRED');
+      console.log(error);
     }
   });
   next();

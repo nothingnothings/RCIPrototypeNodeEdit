@@ -31,9 +31,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem):</div>
-                        <form action="/banner-edit" method="POST">
-                        <input id="file-1" type="file" name="banner-1"/>
-                        <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                        <form action="/banner-edit" method="POST" enctype="multipart/form-data">
+                            <input id="file-1" type="file" name="image"/>
+                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <input type="hidden" value="banner-1" name="pageName">
                     </form>
                     </div>
                 </div>
@@ -45,9 +46,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem):</div>
-                        <form action="/banner-edit" method="POST">
-                            <input id="file-2" type="file" name="banner-2"/>
+                        <form action="/banner-edit" method="POST" enctype="multipart/form-data">
+                            <input id="file-2" type="file" name="image"/>
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <input type="hidden" value="banner-2" name="pageName">
                         </form>
                     </div>
                 </div>
@@ -59,9 +61,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem):</div>
-                        <form action="/banner-edit" method="POST">
-                            <input id="file-3" type="file" name="banner-3"/>
+                        <form action="/banner-edit" method="POST" enctype="multipart/form-data">
+                            <input id="file-3" type="file" name="image"/>
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <input type="hidden" value="banner-3" name="pageName">
                         </form>
                     </div>
                 </div>
@@ -73,9 +76,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem):</div>
-                        <form action="/banner-edit" method="POST">
-                            <input id="file-4" type="file" name="banner-4"/>
+                        <form action="/banner-edit" method="POST" enctype="multipart/form-data">
+                            <input id="file-4" type="file" name="image"/>
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <input type="hidden" value="banner-4" name="pageName">
                         </form>
                     </div>
                 </div>
