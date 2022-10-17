@@ -1,6 +1,6 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/login.css">
-<script src="/js/form.js" defer></script>
+<script src="/js/login.js" defer></script>
 </head>
 <body>
         <main class="d-flex flex-column justify-content-center align-items-center login-main" style="height: 100vh !important;">
@@ -48,17 +48,4 @@
                 </div>
 
         </main>
-        <script>
-            var form = document.querySelector('.needs-validation');
-        
-            form.addEventListener('submit', function(event) {
-        
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-        
-                form.classList.add('was-validated');
-            })
-        </script>
 </body>
