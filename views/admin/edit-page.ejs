@@ -9,8 +9,8 @@
         <div class="navbar edit-page-navbar bg-secondary">   
              <ul class="navbar-nav ml-auto">
                 <div class=" fake-button">
-                <form action="/banner-edit" method="POST">
-                    <button type="submit" action="/logout" method="POST" class="logout-button">Logout</button>
+                <form method="POST" action="/logout">
+                    <button type="submit"  method="POST" class="logout-button">Logout</button>
                     <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                 </form>
             </div>
