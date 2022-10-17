@@ -148,6 +148,7 @@
         this.uparea.on('drop', function (e) {
           $(this).css('border', '2px dotted #0B85A1');
           e.preventDefault();
+          console.log(e.originalEvent.dataTransfer);
           var files = e.originalEvent.dataTransfer.files;
           for (var i = 0; i < files.length; i++) {
             pekeUpload.checkFile(files[i]);
