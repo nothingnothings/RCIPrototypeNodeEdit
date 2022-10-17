@@ -89,8 +89,7 @@
   letter-spacing: 0px; }
 
 .logout-button {
-  border: 2px solid var(--blue);
-  color: var(--blue);
+  color: var(--dark);
   font-family: Atkinson Hyperlegible, sans-serif;
   letter-spacing: 0px;
   font-size: 21.33px;
