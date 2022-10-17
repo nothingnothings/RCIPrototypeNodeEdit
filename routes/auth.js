@@ -24,7 +24,7 @@ router.post(
         return User.findOne({ email: value }).then((user) => {
           if (!user) {
             return Promise.reject(
-              'No account assigned to that email, please try another one.'
+              'Nenhum Admin encontrado para este email, por favor tente outro.'
             );
           }
         });
@@ -32,7 +32,7 @@ router.post(
       .normalizeEmail(),
     check('password')
       .isAlphanumeric()
-      .withMessage('Password must be made of only letters and numbers.')
+      .withMessage('A senha deve ser composta apenas de letras e números.')
       .custom((value, { req }) => {
         return User.findOne({ email: req.body.email }).then((user) => {
           return bcrypt
@@ -43,10 +43,10 @@ router.post(
               } else {
                 if (value.length < 6) {
                   return Promise.reject(
-                    'Your Password must contain 6 or more characters.'
+                    'A senha deve conter 6 ou mais caracteres.'
                   );
                 } else {
-                  return Promise.reject('Invalid Password');
+                  return Promise.reject('Senha inválida.');
                 }
               }
             });
@@ -57,6 +57,11 @@ router.post(
 
 authController.postLogin
 );
+
+
+
+
+
 
 router.post(
   '/logout',
