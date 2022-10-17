@@ -61,6 +61,17 @@ authController.postLogin
 
 
 
+router.post(
+
+  '/signup', 
+
+
+
+
+  authController.postSignup
+)
+
+
 
 
 router.post(
