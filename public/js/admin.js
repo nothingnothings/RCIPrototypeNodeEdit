@@ -1,4 +1,8 @@
-$('#file').pekeUpload();
+$('#file-1').pekeUpload();
+$('#file-2').pekeUpload();
+$('#file-3').pekeUpload();
+$('#file-4').pekeUpload();
+
 
 function sendForm(payload) {
   fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', {
