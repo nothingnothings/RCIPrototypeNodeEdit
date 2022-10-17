@@ -64,7 +64,7 @@
               for (var i=0;i < data.data.length;i++) {
                   var container = document.getElementById('insta-feed');
                   var imgURL = data.data[i].images.standard_resolution.url;
-                  console.log(imgURL);
+                
                   var div = document.createElement('div');
                   div.setAttribute('class','instapic');
                   container.appendChild(div);
@@ -72,7 +72,7 @@
                   img.setAttribute('src',imgURL)
                   div.appendChild(img);
               }
-              console.log(data);
+ 
           } else { }
       };
       request.onerror = function() {

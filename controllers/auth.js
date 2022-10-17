@@ -70,31 +70,6 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-exports.postSignup = (req, res, next) => {
-  const { email, password } = req.body;
-  console.log(email);
-  User.findOne({ email: email.toLowerCase() })
-    .then((user) => {
-      if (user) {
-        return res.redirect('/signup');
-      } else {
-        return bcrypt
-          .hash(password, 12)
-
-          .then((hashedPassword) => {
-            const user = new User({
-              email: email.toLowerCase(),
-              password: hashedPassword,
-            });
-            return user.save();
-          });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 exports.postLogout = (req, res, _next) => {
   req.session.destroy(() => {
     res.redirect('/');

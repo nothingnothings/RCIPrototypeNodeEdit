@@ -13,7 +13,6 @@ exports.getOQueFazemosPage = (req, res, next) => {
 };
 
 exports.getQuemSomosPage = (req, res, next) => {
-  console.log('exemplo');
   res.render('index/quem-somos', {
     path: '/quem-somos',
   });
