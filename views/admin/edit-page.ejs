@@ -1,6 +1,6 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/login.css">
-<script type="text/javascript" src="/js/pekeUpload.js"></script>
+<!-- <script type="text/javascript" src="/js/pekeUpload.js"></script> -->
 <link rel="stylesheet" href="/css/admin.css">
 <script src="/js/admin.js" defer></script>
 
@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
                         <form action="/banner-edit" method="POST" enctype="multipart/form-data" class="needs-validation">
-                            <input id="file-1" type="file" name="image" required/>
+                            <input id="file-1" type="file" name="image" required />
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-1" name="pageName">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
                         <form action="/banner-edit" method="POST" enctype="multipart/form-data" class="needs-validation" >
-                            <input id="file-2" type="file" name="image" required/>
+                            <input id="file-2" type="file" name="image" required />
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-2" name="pageName">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>

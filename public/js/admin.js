@@ -1,9 +1,18 @@
-$('#file-1').pekeUpload();
-$('#file-2').pekeUpload();
-$('#file-3').pekeUpload();
-$('#file-4').pekeUpload();
+// $('#file-1').pekeUpload();
+// $('#file-2').pekeUpload();
+// $('#file-3').pekeUpload();
+// $('#file-4').pekeUpload();
 
 
+
+// const loadFile = (event) => {
+//     let img = document.getElementById('image');
+//     let output = document.getElementById('output');
+//     output.src = URL.createObjectURL(event.target.files[0]);
+//     output.onload = function () {
+//       URL.revokeObjectURL(output.src);
+//     };
+//   };
 
 
 // function sendForm(payload) {
