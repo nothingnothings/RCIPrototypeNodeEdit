@@ -45,8 +45,6 @@ const fileStorage = multer.diskStorage({
       default:
         return;
     }
-
-    cb(null, Date.now() + '-' + file.originalname);
   },
 });
 
