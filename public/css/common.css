@@ -152,6 +152,9 @@ main {
   padding-top: 4.5rem;
   padding-left: 5.4rem; }
 
+.dark-blue-navbar {
+  background-color: var(--dark-blue); }
+
 #side-menu-toggle {
   border: 3px solid var(--white);
   border-radius: 50px;
