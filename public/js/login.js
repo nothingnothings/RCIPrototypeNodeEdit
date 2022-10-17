@@ -1,7 +1,6 @@
 function sendForm(payload) {
   fetch(
     'https://rciexemplo.herokuapp.com/login',
-
     {
       method: 'POST',
       body: payload,

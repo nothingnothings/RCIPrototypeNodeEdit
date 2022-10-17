@@ -22,9 +22,9 @@ exports.postLogin = (req, res, next) => {
     .then((user) => {
       if (user === null) {
         if (!errors.isEmpty()) {
-          return res.status(422).render('auth/login', {
+          return res.status(422).render('/login', {
             pageTitle: 'Login',
-            path: 'auth/login',
+            path: '/login',
             errorMessage: errors.array()[0].msg,
             oldInput: {
               email: email,
@@ -42,12 +42,12 @@ exports.postLogin = (req, res, next) => {
               req.session.isLoggedIn = true;
               req.session.user = user;
               return req.session.save((_err) => {
-                res.redirect('/');
+                res.redirect('/admin/edit-page');
               });
             } else {
-              res.render('admin/edit-page', {
-                pageTitle: 'Edit Site',
-                path: 'admin/edit-page',
+              res.render('/login', {
+                pageTitle: 'Login Page',
+                path: '/login',
                 errorMessage: errors.array()[0].msg,
                 oldInput: {
                   email: email,
