@@ -78,3 +78,12 @@
 
 .panel-header {
   background-color: var(--dark); }
+
+.instruction-title {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-family: 'Sprint Sans', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px; }
