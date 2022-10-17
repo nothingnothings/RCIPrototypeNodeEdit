@@ -6,20 +6,13 @@ const authCheckerAndRedirecter = require('../middleware/isAuth');
 
 router.get(
   '/edit-page',
-//   authCheckerAndRedirecter,
   adminController.getAdminPage
 );
 
-// router.get(
-//   '/edit-product/:productId',
-//   authCheckerAndRedirecter,
-//   adminController.getEditProductPage
-// );
 
-// router.get(
-//   '/add-product',
-//   authCheckerAndRedirecter,
-//   adminController.getAddProductPage
-// );
+router.post(
+  '/banner-edit',
+  adminController.bannerPost
+)
 
 module.exports = router;

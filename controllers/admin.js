@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+
+
 const { validationResult } = require('express-validator');
 
 exports.getAdminPage = (req, res, _next) => {
@@ -6,3 +10,9 @@ exports.getAdminPage = (req, res, _next) => {
     pageTitle: 'Admin Edit Site Page',
   });
 };
+
+exports.bannerPost = (req, res, next) => {
+
+
+
+}
