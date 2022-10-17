@@ -4,11 +4,11 @@ const router = express.Router();
 const adminController = require('../controllers/admin');
 const authCheckerAndRedirecter = require('../middleware/isAuth');
 
-// router.get(
-//   '/product-list-admin',
+router.get(
+  '/edit-page',
 //   authCheckerAndRedirecter,
-//   adminController.getProductsAdminPage
-// );
+  adminController.getAdminPage
+);
 
 // router.get(
 //   '/edit-product/:productId',
