@@ -45,11 +45,10 @@ exports.postLogin = (req, res, next) => {
                 res.redirect('/');
               });
             } else {
-              res.render('auth/login', {
-                pageTitle: 'Login',
-                path: 'auth/login',
+              res.render('admin/edit-sote', {
+                pageTitle: 'Edit Site',
+                path: 'admin/edit-site',
                 errorMessage: errors.array()[0].msg,
-                cartNumber: !req.user ? null : req.user.cart.products.length,
                 oldInput: {
                   email: email,
                   password: password,
