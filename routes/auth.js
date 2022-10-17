@@ -53,13 +53,6 @@ router.post(
   authController.postLogin
 );
 
-router.post('/signup', authController.postSignup);
-
 router.post('/logout', authController.postLogout);
-
-// router.get(
-//   '/signup',
-// authController.getSignupPage
-// );
 
 module.exports = router;
