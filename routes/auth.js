@@ -36,8 +36,6 @@ router.post(
       })
       .normalizeEmail(),
     check('password')
-      .isAlphanumeric()
-      .withMessage('A senha deve ser composta apenas de letras e números.')
       .custom((value, { req }) => {
         return User.findOne({ email: req.body.email }).then((user) => {
           return bcrypt
