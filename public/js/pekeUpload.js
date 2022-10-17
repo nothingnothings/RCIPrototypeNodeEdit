@@ -86,7 +86,7 @@
                         break;
 
                       case false:
-                        html = '<a href="javascript:void(0)" class="pekeupload-btn-file pkuparea">' + options.btnText + "</a>";
+                        html = '<a href="javascript:void(0)" class="pekeupload-btn-file pkuparea footer-description__line">' + options.btnText + "</a>";
                         break;
                     }
                     break;
