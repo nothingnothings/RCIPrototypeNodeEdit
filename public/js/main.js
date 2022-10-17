@@ -1,6 +1,5 @@
 //HTML sanitizer
 
-
 var toggleButton = document.querySelector('.toggle-button');
 var closeBtn = document.querySelector('.closebtn');
 
@@ -284,7 +283,6 @@ $(document).ready(function () {
 
 ///NAVBAR
 function openNavigation() {
-  console.log('TEST');
   document.getElementById('mySidebar').style.width = '260px';
   $('.toggle-button').addClass('active-toggler');
   document.querySelector('main').style.marginLeft = '-260px';
@@ -296,6 +294,10 @@ function closeNavigation() {
   document.querySelector('main').style.marginLeft = '0px';
 }
 
-toggleButton.addEventListener('click', openNavigation);
+if (toggleButton) {
+  toggleButton.addEventListener('click', openNavigation);
+}
 
-closeBtn.addEventListener('click', closeNavigation);
+if (closeBtn) {
+  closeBtn.addEventListener('click', closeNavigation);
+}
