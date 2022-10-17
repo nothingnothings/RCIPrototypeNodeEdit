@@ -1,20 +1,10 @@
-
-
-
-// const loadFile = (event) => {
-//     let img = document.getElementById('image');
-//     let output = document.getElementById('output');
-//     output.src = URL.createObjectURL(event.target.files[0]);
-//     output.onload = function () {
-//       URL.revokeObjectURL(output.src);
-//     };
-//   };
-
-
 function sendForm(payload) {
   fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', {
     method: 'POST',
     body: payload,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
   })
     .then((res) => {
       res.json();
