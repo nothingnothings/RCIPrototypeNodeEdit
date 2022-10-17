@@ -3,8 +3,6 @@
 var toggleButton = document.querySelector('.toggle-button');
 var closeBtn = document.querySelector('.closebtn');
 
-console.log('TEST');
-
 $('#carousel-multi').carousel({
   interval: false,
 });
