@@ -31,7 +31,7 @@
             onSubmit: true,
             url: "https://rciexemplo.herokuapp.com/admin/banner-edit",
             data: null,
-            limit: 0,
+            limit: 1,
             limitError: "You have reached the limit of files that you can upload",
             delfiletext: "Remove from queue",
             onFileError: function(file, error) {},
