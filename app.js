@@ -109,12 +109,12 @@ app.use((req, _res, next) => {
     });
 });
 
-app.use(csrfProtection);
+// app.use(csrfProtection);
 
-app.use((req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.csrfToken = req.csrfToken();
+//   next();
+// });
 
 app.use('/admin', adminRoutes);
 app.use(indexRoutes);

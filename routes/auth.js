@@ -8,6 +8,15 @@ const bcrypt = require('bcryptjs');
 const authController = require('../controllers/auth');
 const User = require('../models/user');
 
+
+
+
+
+
+
+
+
+
 router.get('/login', authController.getLoginPage);
 
 router.post(

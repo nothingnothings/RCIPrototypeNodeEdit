@@ -4,16 +4,12 @@ const { validationResult } = require('express-validator');
 
 const User = require('../models/user');
 
-
 exports.getLoginPage = (req, res, _next) => {
-
-
   res.render('admin/login', {
-      path: '/admin/login',
-      pageTitle: 'Admin Login Page'
-    });
-
-}
+    path: '/admin/login',
+    pageTitle: 'Admin Login Page',
+  });
+};
 
 exports.postLogin = (req, res, next) => {
   const password = req.body.password;
@@ -75,9 +71,6 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-
-
-
 exports.postSignup = (req, res, next) => {
   const { email, password } = req.body;
   console.log(email);
@@ -94,17 +87,14 @@ exports.postSignup = (req, res, next) => {
               email: email.toLowerCase(),
               password: hashedPassword,
             });
-            return user.save(); 
-          })
+            return user.save();
+          });
       }
     })
     .catch((err) => {
       console.log(err);
     });
 };
-
-
-
 
 exports.postLogout = (req, res, _next) => {
   req.session.destroy(() => {
