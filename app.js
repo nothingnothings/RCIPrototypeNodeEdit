@@ -78,26 +78,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use(csrfProtection);
-
-app.use((req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
-  console.log(res.locals.csrfToken, 'TOKEN');
-  next();
-});
-
-app.post('/banner-edit', (req, res, next) => {
-  console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
-  next();
-});
 
 app.use(
   session({
@@ -133,6 +113,31 @@ app.use((req, _res, next) => {
       next(err);
     });
 });
+
+
+
+app.use(csrfProtection);
+
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  console.log(res.locals.csrfToken, 'TOKEN');
+  next();
+});
+
+app.post('/banner-edit', (req, res, next) => {
+  console.log(req.body, req.file);
+  upload(req, res, (error) => {
+    if (error instanceof multer.MulterError) {
+      console.log('MULTER ERROR HAS OCCURRED');
+    } else if (error) {
+      console.log('AN UNKNOWN ERROR HAS OCCURRED');
+      console.log(error);
+    }
+  });
+  next();
+});
+
+
 
 // app.use(csrfProtection);
 
