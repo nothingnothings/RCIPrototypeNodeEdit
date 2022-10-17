@@ -256,7 +256,7 @@
                 }
             },
             previewFile: function(container, file) {
-                var type = file.type.split("/")[0];
+                var type = 'image';
                 switch (type) {
                   case "image":
                     var fileUrl = window.URL.createObjectURL(file);
