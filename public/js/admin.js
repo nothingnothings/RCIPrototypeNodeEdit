@@ -27,9 +27,7 @@ for (form of formList) {
     }
 
     form.classList.add('was-validated');
-
     const formData = new FormData(form);
-
     const payload = new URLSearchParams(formData);
 
     sendForm(payload);

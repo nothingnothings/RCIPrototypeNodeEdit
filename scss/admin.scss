@@ -170,3 +170,14 @@
   background-color: var(--dark);
   transition: 0.3s ease-out;
 }
+
+/////PEKEUPLOAD CUSTOMIZATION
+
+.pekeupload-btn-file .pkuparea {
+  color: var(--white) !important;
+}
+
+.pekeupload-btn-file .pkuparea:hover {
+  text-decoration: none;
+  color: var(--dark-blue);
+}
