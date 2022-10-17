@@ -22,7 +22,7 @@
       allowedExtensions: '',
       invalidExtError: 'Invalid File Type',
       maxSize: 0,
-      sizeError: 'Size of the file is greather than allowed',
+      sizeError: 'Size of the file is greater than allowed',
       showPreview: true,
       showFilename: true,
       showPercent: true,
@@ -48,6 +48,7 @@
       init: function () {
         this.replacehtml();
         this.uparea.on('click', function () {
+            console.log(pekeUpload);
           pekeUpload.selectfiles();
         });
         ///Handle events when drag
