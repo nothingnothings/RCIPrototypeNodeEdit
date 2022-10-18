@@ -38,18 +38,18 @@ exports.bannerPost = (req, res, next) => {
     });
   }
 
-  // res.redirect(
-  //   '/admin/edit-page',
+  res.redirect(
+    '/admin/edit-page',
 
-  //   {
-  //     pageTitle: 'Admin Edit Page',
-  //     path: 'admin/edit-page',
-  //     message: `Banner da Página ${pageName} atualizado com sucesso.`,
-  //   }
-  // );
+    {
+      pageTitle: 'Admin Edit Page',
+      path: 'admin/edit-page',
+      message: `Banner da Página ${pageName} atualizado com sucesso.`,
+    }
+  );
 
 
-  
+
 
   // switch (req.pageName) {
   //   case 'banner-1':
