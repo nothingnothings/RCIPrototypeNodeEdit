@@ -48,6 +48,9 @@ exports.bannerPost = (req, res, next) => {
   //   }
   // );
 
+
+  
+
   // switch (req.pageName) {
   //   case 'banner-1':
   //     fs.unlink(
