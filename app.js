@@ -102,15 +102,17 @@ app.use(
 
 app.use(flash());
 
+
+
+
+app.use(csrfProtection);
+
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
 
   next();
 });
 
-
-
-app.use(csrfProtection);
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
