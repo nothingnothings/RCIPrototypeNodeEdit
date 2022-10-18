@@ -102,9 +102,6 @@ app.use(
 
 app.use(flash());
 
-
-
-
 app.use(csrfProtection);
 
 app.use((req, res, next) => {
@@ -113,12 +110,10 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
   next();
 });
-
 
 app.use((req, _res, next) => {
   if (!req.session.user) {
@@ -138,8 +133,7 @@ app.use((req, _res, next) => {
     });
 });
 
-
-app.post( (req, res, next) => {
+app.post('/admin/banner-edit', (req, res, next) => {
   console.log(req.body, req.file);
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
