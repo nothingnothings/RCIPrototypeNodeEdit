@@ -139,18 +139,18 @@ app.use((req, _res, next) => {
 });
 
 
-app.post( (req, res, next) => {
-  console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
-  next();
-});
+// app.post( (req, res, next) => {
+//   console.log(req.body, req.file);
+//   upload(req, res, (error) => {
+//     if (error instanceof multer.MulterError) {
+//       console.log('MULTER ERROR HAS OCCURRED');
+//     } else if (error) {
+//       console.log('AN UNKNOWN ERROR HAS OCCURRED');
+//       console.log(error);
+//     }
+//   });
+//   next();
+// });
 
 app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
