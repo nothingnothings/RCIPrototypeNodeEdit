@@ -114,6 +114,8 @@ function uploadFile(req, res) {
   }
 
   if (req.file) {
+
+    console.log(req.file, 'FILE');
     imageKit.upload(
       {
         file: req.file,
