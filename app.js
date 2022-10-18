@@ -76,18 +76,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.post('banner-edit', (req, res, next) => {
-  console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
-  next();
-});
+// app.post('banner-edit', (req, res, next) => {
+//   console.log(req.body, req.file);
+//   upload(req, res, (error) => {
+//     if (error instanceof multer.MulterError) {
+//       console.log('MULTER ERROR HAS OCCURRED');
+//     } else if (error) {
+//       console.log('AN UNKNOWN ERROR HAS OCCURRED');
+//       console.log(error);
+//     }
+//   });
+//   next();
+// });
 
 const csrfProtection = csrf();
 
@@ -130,6 +130,20 @@ app.use(csrfProtection);
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
+
+app.post('banner-edit', (req, res, next) => {
+  console.log(req.body, req.file);
+  upload(req, res, (error) => {
+    if (error instanceof multer.MulterError) {
+      console.log('MULTER ERROR HAS OCCURRED');
+    } else if (error) {
+      console.log('AN UNKNOWN ERROR HAS OCCURRED');
+      console.log(error);
+    }
+  });
   next();
 });
 
