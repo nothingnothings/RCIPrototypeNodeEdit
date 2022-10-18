@@ -94,8 +94,9 @@
 </section>
 </main>
         <script>
-            var form = document.querySelector('.needs-validation');
-            var formData = new FormData();
+            var formList = document.querySelectorAll('.needs-validation');
+            for (form of formList) {
+                var formData = new FormData();
             form.addEventListener('submit', function(event) {
         
                 if (form.checkValidity() === false) {
@@ -109,8 +110,6 @@
                 formData.append('image', form.querySelector('.file').files[0]);
                 formData.append('pageName', form.querySelector('#pageName').value);
       
-
-
                 fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', 
                 
                 {
@@ -128,7 +127,7 @@
                 )
 
             })
-
-    
+            }
+            
         </script>
             <%- include('../includes/end.ejs'); %>
