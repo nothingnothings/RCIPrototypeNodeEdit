@@ -77,8 +77,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer({
-});
+const upload = multer();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
