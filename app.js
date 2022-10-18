@@ -78,8 +78,6 @@ const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
 const upload = multer({
-  dest: 'uploads/',
-  fileFilter: fileFilter,
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
