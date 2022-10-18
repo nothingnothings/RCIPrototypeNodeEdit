@@ -19,8 +19,6 @@ const store = new MongoDBStore({
   collection: 'sessions',
 });
 
-const csrfProtection = csrf();
-
 const errorController = require('./controllers/error');
 const isAuth = require('./middleware/isAuth');
 
@@ -90,6 +88,8 @@ app.post('banner-edit', (req, res, next) => {
   });
   next();
 });
+
+const csrfProtection = csrf();
 
 app.use(
   session({
