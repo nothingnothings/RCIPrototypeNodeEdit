@@ -10,9 +10,9 @@ router.get(
 );
 
 
-router.post(
-  '/banner-edit',
-  adminController.bannerPost
-)
+// router.post(
+//   '/banner-edit',
+//   adminController.bannerPost
+// )
 
 module.exports = router;

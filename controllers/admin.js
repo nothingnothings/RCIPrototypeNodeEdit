@@ -15,32 +15,43 @@ exports.getAdminPage = (req, res, _next) => {
 };
 
 exports.bannerPost = (req, res, next) => {
-  const errors = validationResult(req);
-  const validationErrors = errors.array();
-  console.log(validationErrors);
+  // const errors = validationResult(req);
+  // const validationErrors = errors.array();
+  // console.log(validationErrors);
 
-  const imageData = req.file;
-  const pageName = req.pageName;
+  // const imageData = req.file;
+  // const pageName = req.pageName;
 
-  if (!imageData) {
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: 'O arquivo que foi enviado não é uma imagem.',
-      validationErrors: validationErrors,
-    });
-  }
+  // if (!imageData) {
+  //   return res.status(422).render('admin/edit-page', {
+  //     pageTitle: 'Admin Edit Page',
+  //     path: 'admin/edit-page',
+  //     errorMessage: 'O arquivo enviado não é uma imagem.',
+  //     validationErrors: validationErrors,
+  //   });
+  // }
 
-  if (validationErrors.length > 0) {
-    console.log(validationErrors);
+  // if (validationErrors.length > 0) {
+  //   console.log(validationErrors);
 
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: errors.array()[0].msg,
-      validationErrors: validationErrors,
-    });
-  }
+  //   return res.status(422).render('admin/edit-page', {
+  //     pageTitle: 'Admin Edit Page',
+  //     path: 'admin/edit-page',
+  //     errorMessage: errors.array()[0].msg,
+  //     validationErrors: validationErrors,
+  //   });
+  // }
+
+
+  // res.status(200).json(
+  //   {
+  //     message: 'UPDATED BANNER'
+  //   }
+  // )
+
+
+
+};
  
   // res.redirect(
   //   '/admin/edit-page',
@@ -53,11 +64,7 @@ exports.bannerPost = (req, res, next) => {
   // );
 
 
-  res.status(200).json(
-    {
-      message: 'UPDATED BANNER'
-    }
-  )
+
 
 
 
@@ -110,4 +117,4 @@ exports.bannerPost = (req, res, next) => {
   //     );
   //   default:
   // }
-};
+
