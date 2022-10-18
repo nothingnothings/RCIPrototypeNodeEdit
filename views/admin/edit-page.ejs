@@ -95,9 +95,7 @@
 </main>
         <script>
             var form = document.querySelector('.needs-validation');
-
             var formData = new FormData();
-        
             form.addEventListener('submit', function(event) {
         
                 if (form.checkValidity() === false) {
@@ -113,6 +111,24 @@
                 formData.append('image', form.querySelector('.file').files[0]);
                 formData.append('pageName', form.querySelector('#pageName').value);
                 console.log(formData);
+
+
+                fetch('https://rciexemplo.herokuapp.com/banner-edit', 
+                
+                {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+                )
+                .then(
+                    (res) => {
+                        console.log(res);
+                    }
+                )
+
             })
 
     
