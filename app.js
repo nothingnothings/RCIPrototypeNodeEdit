@@ -78,7 +78,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use((req, res, next) => {
+app.post('banner-edit', (req, res, next) => {
   console.log(req.body, req.file);
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
