@@ -100,6 +100,10 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
 
+function uploadFile(req, res) {
+  res.json({message: 'Sucessfully updated image file.'});
+}
+
 
 app.use(
   session({
@@ -122,12 +126,7 @@ app.use((req, res, next) => {
 
 app.post('/admin/banner-edit', upload, 
 
-
-res.status(200).json(
-  {
-    message: 'success'
-  }
-)
+uploadFile
 
 
 
