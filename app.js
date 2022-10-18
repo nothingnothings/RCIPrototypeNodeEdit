@@ -175,6 +175,10 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter,  (req, res, next) => {
     });
   }
 
+  process.on('uncaughtException', function (err) {
+    console.error(err.stack); // either logs on console or send to other server via api call.
+    process.exit(1)
+  })
 
   console.log('ALMOST THERE');
   res.status(200).json({
@@ -183,6 +187,14 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter,  (req, res, next) => {
 
   // next();
 });
+
+
+
+process.on('uncaughtException', function (err) {
+  console.error(err.stack); // either logs on console or send to other server via api call.
+  process.exit(1)
+})
+
 
 app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
