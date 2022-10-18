@@ -10,8 +10,7 @@
              <ul class="navbar-nav ml-auto">
                 
                 <div>
-                <form method="POST" action="/logout">
-                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                <form method="POST" action="/logout/?_csrf=<%= csrfToken %>">
                     <button type="submit"  method="POST" class="logout-button">Logout</button>
 
                 </form>
@@ -98,47 +97,5 @@
 </section>
 </main>
         <script>
-
-            
-
-            // var formList = document.querySelectorAll('.needs-validation');
-            // for (form of formList) {
-               
-            // form.addEventListener('submit', function(event) {
-        
-            //     if (form.checkValidity() === false) {
-            //         event.preventDefault();
-            //         event.stopPropagation();
-            //     }
-
-
-
-
-            //     var formData = new FormData();
-            //     form.classList.add('was-validated');
-            //     const csrf = form.querySelector('#_csrf').value;
-            //     // formData.append('_csrf', csrf);
-            //     formData.append('file', form.querySelector('.file').files[0]);
-            //     formData.append('pageName', form.querySelector('#pageName').value);
-      
-            //     fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', 
-                
-            //     {
-            //         method: 'POST',
-            //         body: formData,
-            //         headers: {
-            //             'csrf-token': csrf
-            //         }
-            //     }
-            //     )
-            //     .then(
-            //         (res) => {
-            //             console.log(res);
-            //         }
-            //     )
-
-            // })
-            // }
-            
         </script>
             <%- include('../includes/end.ejs'); %>
