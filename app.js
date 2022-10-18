@@ -9,7 +9,6 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const { validationResult } = require('express-validator');
-const authCheckerAndRedirecter = require('./middleware/isAuth');
 
 const flash = require('connect-flash');
 const csrf = require('csurf');
@@ -121,80 +120,94 @@ app.use((req, res, next) => {
 
 
 
-app.post('/admin/banner-edit', (req, res, next) => {
-  console.log(req.body, req.file);
+app.post('/admin/banner-edit', upload, 
 
 
-   upload(req, res, function(err) {
-
-    if (err instanceof multer.MulterError) {
-      console.log(err); //MULTER ERROR WHEN UPLOADING
-    } else if (err) {
-      console.log(err, 'UNKNOWN ERROR');
-    }
-
-    next();
-
-   })
-
-
-
-
-
-  // res.json({message: "Successfully uploaded file."})
-
-  const imageData = req.file;
-
-  const errors = validationResult(req);
-  const validationErrors = errors.array();
-  console.log(validationErrors);
-
-  const pageName = req.pageName;
-
-  if (!imageData) {
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: 'O arquivo enviado não é uma imagem.',
-      validationErrors: validationErrors,
-    });
+res.status(200).json(
+  {
+    message: 'success'
   }
+)
 
-  if (validationErrors.length > 0) {
-    console.log(validationErrors);
 
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: errors.array()[0].msg,
-      validationErrors: validationErrors,
-    });
-  }
 
-  console.log(req.body, 'LINE');
-  console.log(req.file);
+// (req, res, next) => {
+//   console.log(req.body, req.file);
 
-  if (imageData) {
-    imageKit.upload(
-      {
-        file: req.file,
-        fileName: req.filename,
-        folder: 'background_images',
-      },
-      (err, response) => {
-        if (err) {
-          return res.status(500).json({
-            status: 'failed',
-            message:
-              'An error occured during the file upload. Please try again.',
-          });
-        }
 
-        res.json({ status: 'success', message: 'Successfully uploaded file.' });
-      }
-    );
-  }
-});
+//    upload(req, res, function(err) {
+
+//     if (err instanceof multer.MulterError) {
+//       console.log(err); //MULTER ERROR WHEN UPLOADING
+//     } else if (err) {
+//       console.log(err, 'UNKNOWN ERROR');
+//     }
+
+//     next();
+
+//    })
+
+
+
+
+
+//   // res.json({message: "Successfully uploaded file."})
+
+//   const imageData = req.file;
+
+//   const errors = validationResult(req);
+//   const validationErrors = errors.array();
+//   console.log(validationErrors);
+
+//   const pageName = req.pageName;
+
+//   if (!imageData) {
+//     return res.status(422).render('admin/edit-page', {
+//       pageTitle: 'Admin Edit Page',
+//       path: 'admin/edit-page',
+//       errorMessage: 'O arquivo enviado não é uma imagem.',
+//       validationErrors: validationErrors,
+//     });
+//   }
+
+//   if (validationErrors.length > 0) {
+//     console.log(validationErrors);
+
+//     return res.status(422).render('admin/edit-page', {
+//       pageTitle: 'Admin Edit Page',
+//       path: 'admin/edit-page',
+//       errorMessage: errors.array()[0].msg,
+//       validationErrors: validationErrors,
+//     });
+//   }
+
+//   console.log(req.body, 'LINE');
+//   console.log(req.file);
+
+//   if (imageData) {
+//     imageKit.upload(
+//       {
+//         file: req.file,
+//         fileName: req.filename,
+//         folder: 'background_images',
+//       },
+//       (err, response) => {
+//         if (err) {
+//           return res.status(500).json({
+//             status: 'failed',
+//             message:
+//               'An error occured during the file upload. Please try again.',
+//           });
+//         }
+
+//         res.json({ status: 'success', message: 'Successfully uploaded file.' });
+//       }
+//     );
+//   }
+// }
+
+
+);
 
 
 
