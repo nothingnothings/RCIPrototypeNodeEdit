@@ -38,16 +38,22 @@ exports.bannerPost = (req, res, next) => {
     });
   }
 
-  res.redirect(
-    '/admin/edit-page',
+  // res.redirect(
+  //   '/admin/edit-page',
 
+  //   {
+  //     pageTitle: 'Admin Edit Page',
+  //     path: 'admin/edit-page',
+  //     message: `Banner da Página ${pageName} atualizado com sucesso.`,
+  //   }
+  // );
+
+
+  res.status(200).json(
     {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      message: `Banner da Página ${pageName} atualizado com sucesso.`,
+      message: 'UPDATED BANNER'
     }
-  );
-
+  )
 
 
 
