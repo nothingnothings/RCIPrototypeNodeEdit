@@ -134,7 +134,7 @@ app.use((req, res, next) => {
 });
 
 
-app.post('banner-edit', (req, res, next) => {
+app.post( (req, res, next) => {
   console.log(req.body, req.file);
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
