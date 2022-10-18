@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const { validationResult } = require('express-validator');
-const authCheckerAndRedirecter = require('../middleware/isAuth');
+const authCheckerAndRedirecter = require('./middleware/isAuth');
 
 const flash = require('connect-flash');
 const csrf = require('csurf');
