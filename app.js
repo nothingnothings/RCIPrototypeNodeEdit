@@ -76,7 +76,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer({dest: 'uploads/'});
+const upload = multer({storage: multer.memoryStorage()});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -118,7 +118,7 @@ function uploadFile(req, res) {
     console.log(req.file, 'FILE');
     imageKit.upload(
       {
-        file: req.file,
+        file: req.file.buffer,
         fileName: pageNumber,
         folder: 'background-images',
       },
