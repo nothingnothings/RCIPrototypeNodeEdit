@@ -62,6 +62,14 @@ const fileFilter = (_req, file, cb) => {
   }
 };
 
+const ImageKit = require('imagekit');
+
+const imageKit = new ImageKit({
+  publicKey: keys.imageKitPublicKey,
+  privateKey: keys.imageKitPrivateKey,
+  urlEndpoint: keys.imageKitUrlEndpoint,
+});
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -137,64 +145,69 @@ app.use((req, _res, next) => {
     });
 });
 
-app.post('/admin/banner-edit', authCheckerAndRedirecter,  (req, res, next) => {
-  console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
-
-  const errors = validationResult(req);
-  const validationErrors = errors.array();
-  console.log(validationErrors);
+app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
+  // console.log(req.body, req.file);
+  // upload(req, res, (error) => {
+  //   if (error instanceof multer.MulterError) {
+  //     console.log('MULTER ERROR HAS OCCURRED');
+  //   } else if (error) {
+  //     console.log('AN UNKNOWN ERROR HAS OCCURRED');
+  //     console.log(error);
+  //   }
+  // });
 
   const imageData = req.file;
-  const pageName = req.pageName;
 
-  if (!imageData) {
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: 'O arquivo enviado não é uma imagem.',
-      validationErrors: validationErrors,
-    });
+  // const errors = validationResult(req);
+  // const validationErrors = errors.array();
+  // console.log(validationErrors);
+
+  // const imageData = req.file;
+  // const pageName = req.pageName;
+
+  // if (!imageData) {
+  //   return res.status(422).render('admin/edit-page', {
+  //     pageTitle: 'Admin Edit Page',
+  //     path: 'admin/edit-page',
+  //     errorMessage: 'O arquivo enviado não é uma imagem.',
+  //     validationErrors: validationErrors,
+  //   });
+  // }
+
+  // if (validationErrors.length > 0) {
+  //   console.log(validationErrors);
+
+  //   return res.status(422).render('admin/edit-page', {
+  //     pageTitle: 'Admin Edit Page',
+  //     path: 'admin/edit-page',
+  //     errorMessage: errors.array()[0].msg,
+  //     validationErrors: validationErrors,
+  //   });
+
+  if (imageData) {
+    imageKit.upload(
+      {
+        file: req.file,
+        fileName: req.filename,
+        folder: 'background_images',
+      },
+      (err, response) => {
+        if (err) {
+          return res.status(500).json({
+            status: 'failed',
+            message:
+              'An error occured during the file upload. Please try again.',
+          });
+        }
+
+        res.json({ status: 'success', message: 'Successfully uploaded file.' });
+      }
+    );
   }
 
-  if (validationErrors.length > 0) {
-    console.log(validationErrors);
-
-    return res.status(422).render('admin/edit-page', {
-      pageTitle: 'Admin Edit Page',
-      path: 'admin/edit-page',
-      errorMessage: errors.array()[0].msg,
-      validationErrors: validationErrors,
-    });
-  }
-
-  process.on('uncaughtException', function (err) {
-    console.error(err.stack); // either logs on console or send to other server via api call.
-    process.exit(1)
-  })
-
-  console.log('ALMOST THERE');
-  res.status(200).json({
-    message: `UPDATED BANNER PAGE ${pageName}`,
-  });
-
-  // next();
 });
 
-
-
-process.on('uncaughtException', function (err) {
-  console.error(err.stack); // either logs on console or send to other server via api call.
-  process.exit(1)
-})
-
+// next();
 
 app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
