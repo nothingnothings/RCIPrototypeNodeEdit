@@ -94,16 +94,19 @@
 </section>
 </main>
         <script>
+
+            
+
             var formList = document.querySelectorAll('.needs-validation');
             for (form of formList) {
-                var formData = new FormData();
+               
             form.addEventListener('submit', function(event) {
         
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
                 }
-        
+                var formData = new FormData();
                 form.classList.add('was-validated');
                 const csrf = form.querySelector('#_csrf').value;
                 formData.append('_csrf', csrf);
