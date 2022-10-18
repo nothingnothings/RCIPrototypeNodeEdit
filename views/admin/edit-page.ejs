@@ -32,10 +32,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit/?_csrf=<%= csrfToken %>" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-1" class="file" type="file" name="image" required />
                             <input type="hidden" value="banner-1" id="pageName" name="pageName">
-                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <!-- <input type="hidden" value="<%= csrfToken %>" name="_csrf"> -->
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -48,10 +48,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation" >
+                        <form method="POST" action="/admin/banner-edit/?_csrf=<%= csrfToken %>" enctype="multipart/form-data" class="needs-validation" >
                             <input id="file-2" class="file" type="file" name="image" required />
                             <input type="hidden" value="banner-2" id="pageName" name="pageName">
-                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <!-- <input type="hidden" value="<%= csrfToken %>" name="_csrf"> -->
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                         </form>
                     </div>
@@ -64,10 +64,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit/?_csrf=<%= csrfToken %>" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-3" class="file" type="file" name="image" required/>
                             <input type="hidden" value="banner-3" id="pageName" name="pageName">
-                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <!-- <input type="hidden" value="<%= csrfToken %>" name="_csrf"> -->
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                         </form>
                     </div>
@@ -80,10 +80,10 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit/?_csrf=<%= csrfToken %>" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-4" class="file" type="file" name="image" required/>
                             <input type="hidden" value="banner-4" id="pageName" name="pageName">
-                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <!-- <input type="hidden" value="<%= csrfToken %>" name="_csrf"> -->
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                         </form>
                     </div>
