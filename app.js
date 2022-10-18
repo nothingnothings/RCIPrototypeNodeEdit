@@ -97,13 +97,48 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //   next();
 // });
 
-
-
-
 function uploadFile(req, res) {
-  res.json({message: 'Sucessfully updated image file.'});
-}
+  let pageNumber;
 
+  switch (req.pageNumber) {
+    case '1':
+      pageNumber = 'Retangulo98.png';
+    case '2':
+      pageNumber = 'Retangulo99.png';
+    case '3':
+      pageNumber = 'Retangulo100.png';
+    case '4':
+      pageNumber = 'Retangulo101.png';
+    default:
+      pageNumber = 'Retangulo98.png';
+  }
+
+  if (req.file) {
+    imageKit.upload(
+      {
+        file: req.file,
+        fileName: pageNumber,
+        folder: 'background-images',
+      },
+
+      (err, res) => {
+        if (err) {
+          return res.status(500).json({
+            status: 'failed',
+            message:
+              'An error occured during the file upload. Please try again.',
+          });
+        }
+
+        res.json({ status: 'success', message: 'Upload successful.' });
+      }
+    );
+  }
+
+  res.json({
+    message: `Sucessfully updated image file of page number ${pageNumber}.`,
+  });
+}
 
 app.use(
   session({
@@ -114,103 +149,88 @@ app.use(
   })
 );
 
-
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
 
   next();
 });
 
+app.post(
+  '/admin/banner-edit',
+  upload,
 
+  uploadFile
 
+  // (req, res, next) => {
+  //   console.log(req.body, req.file);
 
-app.post('/admin/banner-edit', upload, 
+  //    upload(req, res, function(err) {
 
-uploadFile
+  //     if (err instanceof multer.MulterError) {
+  //       console.log(err); //MULTER ERROR WHEN UPLOADING
+  //     } else if (err) {
+  //       console.log(err, 'UNKNOWN ERROR');
+  //     }
 
+  //     next();
 
+  //    })
 
-// (req, res, next) => {
-//   console.log(req.body, req.file);
+  //   // res.json({message: "Successfully uploaded file."})
 
+  //   const imageData = req.file;
 
-//    upload(req, res, function(err) {
+  //   const errors = validationResult(req);
+  //   const validationErrors = errors.array();
+  //   console.log(validationErrors);
 
-//     if (err instanceof multer.MulterError) {
-//       console.log(err); //MULTER ERROR WHEN UPLOADING
-//     } else if (err) {
-//       console.log(err, 'UNKNOWN ERROR');
-//     }
+  //   const pageName = req.pageName;
 
-//     next();
+  //   if (!imageData) {
+  //     return res.status(422).render('admin/edit-page', {
+  //       pageTitle: 'Admin Edit Page',
+  //       path: 'admin/edit-page',
+  //       errorMessage: 'O arquivo enviado não é uma imagem.',
+  //       validationErrors: validationErrors,
+  //     });
+  //   }
 
-//    })
+  //   if (validationErrors.length > 0) {
+  //     console.log(validationErrors);
 
+  //     return res.status(422).render('admin/edit-page', {
+  //       pageTitle: 'Admin Edit Page',
+  //       path: 'admin/edit-page',
+  //       errorMessage: errors.array()[0].msg,
+  //       validationErrors: validationErrors,
+  //     });
+  //   }
 
+  //   console.log(req.body, 'LINE');
+  //   console.log(req.file);
 
+  //   if (imageData) {
+  //     imageKit.upload(
+  //       {
+  //         file: req.file,
+  //         fileName: req.filename,
+  //         folder: 'background_images',
+  //       },
+  //       (err, response) => {
+  //         if (err) {
+  //           return res.status(500).json({
+  //             status: 'failed',
+  //             message:
+  //               'An error occured during the file upload. Please try again.',
+  //           });
+  //         }
 
-
-//   // res.json({message: "Successfully uploaded file."})
-
-//   const imageData = req.file;
-
-//   const errors = validationResult(req);
-//   const validationErrors = errors.array();
-//   console.log(validationErrors);
-
-//   const pageName = req.pageName;
-
-//   if (!imageData) {
-//     return res.status(422).render('admin/edit-page', {
-//       pageTitle: 'Admin Edit Page',
-//       path: 'admin/edit-page',
-//       errorMessage: 'O arquivo enviado não é uma imagem.',
-//       validationErrors: validationErrors,
-//     });
-//   }
-
-//   if (validationErrors.length > 0) {
-//     console.log(validationErrors);
-
-//     return res.status(422).render('admin/edit-page', {
-//       pageTitle: 'Admin Edit Page',
-//       path: 'admin/edit-page',
-//       errorMessage: errors.array()[0].msg,
-//       validationErrors: validationErrors,
-//     });
-//   }
-
-//   console.log(req.body, 'LINE');
-//   console.log(req.file);
-
-//   if (imageData) {
-//     imageKit.upload(
-//       {
-//         file: req.file,
-//         fileName: req.filename,
-//         folder: 'background_images',
-//       },
-//       (err, response) => {
-//         if (err) {
-//           return res.status(500).json({
-//             status: 'failed',
-//             message:
-//               'An error occured during the file upload. Please try again.',
-//           });
-//         }
-
-//         res.json({ status: 'success', message: 'Successfully uploaded file.' });
-//       }
-//     );
-//   }
-// }
-
-
+  //         res.json({ status: 'success', message: 'Successfully uploaded file.' });
+  //       }
+  //     );
+  //   }
+  // }
 );
-
-
-
-
 
 const csrfProtection = csrf();
 
