@@ -133,6 +133,7 @@ function uploadFile(req, res) {
               'An error occured during the file upload. Please try again.',
           });
         }
+        
 
         res.json({ status: 'success', message: 'Upload successful.' });
       }
