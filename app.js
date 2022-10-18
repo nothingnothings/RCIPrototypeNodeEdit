@@ -101,6 +101,29 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //   next();
 // });
 
+
+
+
+
+app.use(
+  session({
+    secret: keys.sessionSecret,
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
+
+
+app.use((req, res, next) => {
+  res.locals.isLoggedIn = req.session.isLoggedIn;
+
+  next();
+});
+
+
+
+
 app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
   console.log(req.body, req.file);
 
@@ -167,24 +190,24 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
 
 const csrfProtection = csrf();
 
-app.use(
-  session({
-    secret: keys.sessionSecret,
-    resave: false,
-    saveUninitialized: false,
-    store: store,
-  })
-);
+// app.use(
+//   session({
+//     secret: keys.sessionSecret,
+//     resave: false,
+//     saveUninitialized: false,
+//     store: store,
+//   })
+// );
 
 app.use(flash());
 
 app.use(csrfProtection);
 
-app.use((req, res, next) => {
-  res.locals.isLoggedIn = req.session.isLoggedIn;
+// app.use((req, res, next) => {
+//   res.locals.isLoggedIn = req.session.isLoggedIn;
 
-  next();
-});
+//   next();
+// });
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
