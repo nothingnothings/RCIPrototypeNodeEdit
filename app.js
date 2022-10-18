@@ -8,6 +8,9 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+const { validationResult } = require('express-validator');
+const authCheckerAndRedirecter = require('../middleware/isAuth');
+
 const flash = require('connect-flash');
 const csrf = require('csurf');
 
@@ -20,6 +23,7 @@ const store = new MongoDBStore({
 });
 
 const errorController = require('./controllers/error');
+
 const isAuth = require('./middleware/isAuth');
 
 const User = require('./models/user');
@@ -133,7 +137,7 @@ app.use((req, _res, next) => {
     });
 });
 
-app.post('/admin/banner-edit', (req, res, next) => {
+app.post('/admin/banner-edit', authCheckerAndRedirecter,  (req, res, next) => {
   console.log(req.body, req.file);
   upload(req, res, (error) => {
     if (error instanceof multer.MulterError) {
