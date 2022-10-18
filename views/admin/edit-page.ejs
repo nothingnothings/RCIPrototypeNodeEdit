@@ -105,7 +105,7 @@
         
                 form.classList.add('was-validated');
                 const csrf = form.querySelector('#_csrf').value;
-                formData.append('_csrf', csrf);
+                // formData.append('_csrf', csrf);
                 formData.append('image', form.querySelector('.file').files[0]);
                 formData.append('pageName', form.querySelector('#pageName').value);
       
@@ -115,7 +115,10 @@
                 
                 {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    headers: {
+                        'csrf-token': csrf
+                    }
                 }
                 )
                 .then(
