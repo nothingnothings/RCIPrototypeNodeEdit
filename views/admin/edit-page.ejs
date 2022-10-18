@@ -104,23 +104,18 @@
                 }
         
                 form.classList.add('was-validated');
-
                 const csrf = form.querySelector('#_csrf').value;
-                console.log(csrf);
                 formData.append('_csrf', csrf);
                 formData.append('image', form.querySelector('.file').files[0]);
                 formData.append('pageName', form.querySelector('#pageName').value);
-                console.log(formData);
+      
 
 
                 fetch('https://rciexemplo.herokuapp.com/banner-edit', 
                 
                 {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
+                    body: formData
                 }
                 )
                 .then(
