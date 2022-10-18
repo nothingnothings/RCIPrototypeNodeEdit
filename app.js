@@ -77,7 +77,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer();
+const upload = multer().single('file');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -124,11 +124,21 @@ app.use((req, res, next) => {
 app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
   console.log(req.body, req.file);
 
-  try {
-    upload.single('file');
-  } catch(err) {
-    console.log(err);
-  }
+
+   upload(req, res, function(err) {
+
+    if (err instanceof multer.MulterError) {
+      console.log(err); //MULTER ERROR WHEN UPLOADING
+    } else if (err) {
+      console.log(err, 'UNKNOWN ERROR');
+    }
+
+    next();
+
+   })
+
+
+
 
 
   // res.json({message: "Successfully uploaded file."})
