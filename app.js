@@ -76,7 +76,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer().single('file');
+const upload = multer({dest: 'uploads/'});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -159,7 +159,7 @@ app.use((req, res, next) => {
 
 app.post(
   '/admin/banner-edit',
-  upload,
+  upload.single("file"),
 
   uploadFile
 
