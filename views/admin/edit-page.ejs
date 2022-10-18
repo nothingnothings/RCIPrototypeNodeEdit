@@ -32,7 +32,7 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-1" class="file" type="file" name="image" required />
                             <input type="hidden" id="_csrf"  value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-1" id="pageName" name="pageName">
@@ -48,7 +48,7 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" enctype="multipart/form-data" class="needs-validation" >
+                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation" >
                             <input id="file-2" class="file" type="file" name="image" required />
                             <input type="hidden" id="_csrf" value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-2" id="pageName" name="pageName">
@@ -64,7 +64,7 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-3" class="file" type="file" name="image" required/>
                             <input type="hidden" id="_csrf" value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-3" id="pageName" name="pageName">
@@ -80,7 +80,7 @@
                     </h5>
                     <div class="card-body">
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
-                        <form method="POST" enctype="multipart/form-data" class="needs-validation">
+                        <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-4" class="file" type="file" name="image" required/>
                             <input type="hidden" id="_csrf" value="<%= csrfToken %>" name="_csrf">
                             <input type="hidden" value="banner-4" id="pageName" name="pageName">
@@ -106,28 +106,30 @@
                     event.preventDefault();
                     event.stopPropagation();
                 }
-                var formData = new FormData();
-                form.classList.add('was-validated');
-                const csrf = form.querySelector('#_csrf').value;
-                formData.append('_csrf', csrf);
-                formData.append('image', form.querySelector('.file').files[0]);
-                formData.append('pageName', form.querySelector('#pageName').value);
+
+
+                // var formData = new FormData();
+                // form.classList.add('was-validated');
+                // const csrf = form.querySelector('#_csrf').value;
+                // formData.append('_csrf', csrf);
+                // formData.append('image', form.querySelector('.file').files[0]);
+                // formData.append('pageName', form.querySelector('#pageName').value);
       
-                fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', 
+                // fetch('https://rciexemplo.herokuapp.com/admin/banner-edit', 
                 
-                {
-                    method: 'POST',
-                    body: formData,
-                    // headers: {
-                    //     'csrf-token': csrf
-                    // }
-                }
-                )
-                .then(
-                    (res) => {
-                        console.log(res);
-                    }
-                )
+                // {
+                //     method: 'POST',
+                //     body: formData,
+                //     // headers: {
+                //     //     'csrf-token': csrf
+                //     // }
+                // }
+                // )
+                // .then(
+                //     (res) => {
+                //         console.log(res);
+                //     }
+                // )
 
             })
             }
