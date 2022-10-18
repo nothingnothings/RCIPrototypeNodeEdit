@@ -175,6 +175,8 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter,  (req, res, next) => {
     });
   }
 
+
+  console.log('ALMOST THERE');
   res.status(200).json({
     message: `UPDATED BANNER PAGE ${pageName}`,
   });
