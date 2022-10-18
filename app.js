@@ -184,7 +184,8 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
   //     validationErrors: validationErrors,
   //   });
 
-    console.log(req.pageName, 'LINE');
+    console.log(req.body, 'LINE');
+    console.log(req.file);
 
   if (imageData) {
     imageKit.upload(
