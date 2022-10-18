@@ -11,6 +11,7 @@
                 
                 <div>
                 <form method="POST" action="/logout">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                     <button type="submit"  method="POST" class="logout-button">Logout</button>
 
                 </form>

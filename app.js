@@ -76,7 +76,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer({storage: multer.memoryStorage()});
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -114,7 +114,6 @@ function uploadFile(req, res) {
   }
 
   if (req.file) {
-
     console.log(req.file, 'FILE');
     imageKit.upload(
       {
@@ -122,7 +121,7 @@ function uploadFile(req, res) {
         fileName: pageNumber,
         folder: 'background_images',
         overwriteFile: true,
-        useUniqueFileName: false
+        useUniqueFileName: false,
       },
 
       (err, res) => {
@@ -133,7 +132,6 @@ function uploadFile(req, res) {
               'An error occured during the file upload. Please try again.',
           });
         }
-        
 
         res.json({ status: 'success', message: 'Upload successful.' });
       }
@@ -162,7 +160,7 @@ app.use((req, res, next) => {
 
 app.post(
   '/admin/banner-edit',
-  upload.single("file"),
+  upload.single('file'),
 
   uploadFile
 
