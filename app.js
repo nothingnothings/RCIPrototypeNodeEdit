@@ -124,7 +124,12 @@ app.use((req, res, next) => {
 app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
   console.log(req.body, req.file);
 
-  upload.single('file');
+  try {
+    upload.single('file');
+  } catch(err) {
+    console.log(err);
+  }
+
 
   // res.json({message: "Successfully uploaded file."})
 
