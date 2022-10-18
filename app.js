@@ -28,27 +28,27 @@ const isAuth = require('./middleware/isAuth');
 
 const User = require('./models/user');
 
-const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images/background-images');
-  },
-  filename: (req, file, cb) => {
-    // cb(null, Date.now() + '-' + file.originalname);
+// const fileStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'images/background-images');
+//   },
+//   filename: (req, file, cb) => {
+//     // cb(null, Date.now() + '-' + file.originalname);
 
-    switch (req.pageName) {
-      case 'banner-1':
-        cb(null, './images/background-images/Retangulo98.png');
-      case 'banner-2':
-        cb(null, './images/background-images/Retangulo99.png');
-      case 'banner-3':
-        cb(null, './images/background-images/Retangulo100.png');
-      case 'banner-4':
-        cb(null, './images/background-images/Retangulo101.png');
-      default:
-        return;
-    }
-  },
-});
+//     switch (req.pageName) {
+//       case 'banner-1':
+//         cb(null, './images/background-images/Retangulo98.png');
+//       case 'banner-2':
+//         cb(null, './images/background-images/Retangulo99.png');
+//       case 'banner-3':
+//         cb(null, './images/background-images/Retangulo100.png');
+//       case 'banner-4':
+//         cb(null, './images/background-images/Retangulo101.png');
+//       default:
+//         return;
+//     }
+//   },
+// });
 
 const fileFilter = (_req, file, cb) => {
   if (
@@ -78,9 +78,9 @@ const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
 const upload = multer({
-  storage: fileStorage,
+  dest: 'uploads/',
   fileFilter: fileFilter,
-}).single('image');
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -103,42 +103,38 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
   console.log(req.body, req.file);
-  upload(req, res, (error) => {
-    if (error instanceof multer.MulterError) {
-      console.log('MULTER ERROR HAS OCCURRED');
-    } else if (error) {
-      console.log('AN UNKNOWN ERROR HAS OCCURRED');
-      console.log(error);
-    }
-  });
+
+  upload().single('file');
+
+  // res.json({message: "Successfully uploaded file."})
 
   const imageData = req.file;
 
-  // const errors = validationResult(req);
-  // const validationErrors = errors.array();
-  // console.log(validationErrors);
+  const errors = validationResult(req);
+  const validationErrors = errors.array();
+  console.log(validationErrors);
 
-  // const imageData = req.file;
-  // const pageName = req.pageName;
+  const pageName = req.pageName;
 
-  // if (!imageData) {
-  //   return res.status(422).render('admin/edit-page', {
-  //     pageTitle: 'Admin Edit Page',
-  //     path: 'admin/edit-page',
-  //     errorMessage: 'O arquivo enviado não é uma imagem.',
-  //     validationErrors: validationErrors,
-  //   });
-  // }
+  if (!imageData) {
+    return res.status(422).render('admin/edit-page', {
+      pageTitle: 'Admin Edit Page',
+      path: 'admin/edit-page',
+      errorMessage: 'O arquivo enviado não é uma imagem.',
+      validationErrors: validationErrors,
+    });
+  }
 
-  // if (validationErrors.length > 0) {
-  //   console.log(validationErrors);
+  if (validationErrors.length > 0) {
+    console.log(validationErrors);
 
-  //   return res.status(422).render('admin/edit-page', {
-  //     pageTitle: 'Admin Edit Page',
-  //     path: 'admin/edit-page',
-  //     errorMessage: errors.array()[0].msg,
-  //     validationErrors: validationErrors,
-  //   });
+    return res.status(422).render('admin/edit-page', {
+      pageTitle: 'Admin Edit Page',
+      path: 'admin/edit-page',
+      errorMessage: errors.array()[0].msg,
+      validationErrors: validationErrors,
+    });
+  }
 
   console.log(req.body, 'LINE');
   console.log(req.file);
@@ -164,6 +160,10 @@ app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
     );
   }
 });
+
+
+
+
 
 const csrfProtection = csrf();
 
