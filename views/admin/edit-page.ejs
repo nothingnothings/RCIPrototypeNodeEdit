@@ -34,7 +34,7 @@
                         <div class="card-title instruction-title py-4">Atualizar Banner (selecione uma imagem 1920x1080 de formato .jpg ou .png):</div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-1" class="file" type="file" name="image" required />
-                            <!-- <input type="hidden" value="banner-1" id="pageName" name="pageName"> -->
+                            <input type="hidden" value="banner-1" id="pageName" name="pageName">
                             <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
