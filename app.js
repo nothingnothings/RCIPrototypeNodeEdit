@@ -120,7 +120,7 @@ function uploadFile(req, res) {
       {
         file: req.file.buffer,
         fileName: pageNumber,
-        folder: 'background-images',
+        folder: 'background_images',
       },
 
       (err, res) => {
