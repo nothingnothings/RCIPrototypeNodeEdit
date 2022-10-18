@@ -171,17 +171,21 @@
   transition: 0.3s ease-out;
 }
 
-/////PEKEUPLOAD CUSTOMIZATION
 
-.pekeupload-btn-file .pkuparea {
-  color: var(--white) !important;
+//////MODAL
+
+.modal-message {
+  margin: auto;
+  width: 90%;
+  border: 3px solid var(--dark-blue);
+  padding: 1rem;
+  border-radius: 3px;
+  background: var(--blue);
+  text-align: center;
 }
 
-.pekeupload-btn-file .pkuparea:hover {
-  text-decoration: none !important;
-  color: var(--dark-blue) !important;
-}
-
-.delbutton .pkdel {
-  color: rgb(230, 26, 26);
+.modal-message--error {
+  border-color: var(--highlight-danger);
+  background: var(--highlight-light-danger);
+  color: var(--highlight-danger);
 }

@@ -126,20 +126,37 @@ function uploadFile(req, res) {
 
       (err, res) => {
         if (err) {
+          // return res.status(500).json({
+          //   status: 'failed',
+          //   message:
+          //     'An error occured during the file upload. Please try again.',
+          // });
+
+          // return res.status(500).render('admin/edit-page', {
+          //   message:
+          //     'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
+          //   status: 500,
+          // });
+
           return res.status(500).json({
-            status: 'failed',
             message:
-              'An error occured during the file upload. Please try again.',
+              'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
+            status: 500,
           });
         }
 
-        res.json({ status: 'success', message: 'Upload successful.' });
+
       }
     );
   }
+  // return res.status(200).render('admin/edit-page', {
+  //   message: `Atualização do banner da página ${pageNumber} bem-sucedida.`,
+  //   status: 200,
+  // });
 
-  res.json({
-    message: `Sucessfully updated image file of page number ${pageNumber}.`,
+  return res.status(200).json( {
+    message: `Atualização do banner da página ${pageNumber} bem-sucedida.`,
+    status: 200,
   });
 }
 
