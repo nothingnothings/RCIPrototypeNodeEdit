@@ -121,6 +121,8 @@ function uploadFile(req, res) {
         file: req.file.buffer,
         fileName: pageNumber,
         folder: 'background_images',
+        overwriteFile: true,
+        useUniqueFileName: false
       },
 
       (err, res) => {
