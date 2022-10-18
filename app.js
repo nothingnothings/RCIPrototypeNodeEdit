@@ -121,7 +121,7 @@ app.use((req, res, next) => {
 
 
 
-app.post('/admin/banner-edit', authCheckerAndRedirecter, (req, res, next) => {
+app.post('/admin/banner-edit', (req, res, next) => {
   console.log(req.body, req.file);
 
 
