@@ -74,6 +74,9 @@ const streamifier = require('streamifier');
 
 cloudinary.config({
   secure: true,
+  cloud_name: keys.cloudinaryCloudName,
+  api_key: keys.cloudinaryApiKey,
+  api_secret: keys.cloudinaryApiSecret
 });
 
 // const uploadImage = async (imagePath) => {
