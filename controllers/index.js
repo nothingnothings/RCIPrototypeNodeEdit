@@ -9,9 +9,8 @@ exports.getStartingPage = (req, res, _next) => {
 
   return res.render('index/index', {
     path: '/',
-    message: 'Banner da página 2 atualizado com sucesso.',
-    errorMessage: ''
-  
+    message: req.flash('message') !== '' ? req.flash('message') : '',
+    errorMessage: req.flash('errorMessage') !== '' ? req.flash('errorMessage') : ''
   });
 };
 
