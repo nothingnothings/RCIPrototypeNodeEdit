@@ -933,6 +933,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation-duration: 1s;
   width: 450px;
   max-width: calc(100% - 40px);
   max-height: calc(100% - 40px);
