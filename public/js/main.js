@@ -292,10 +292,29 @@ function closeNavigation() {
   document.querySelector('main').style.marginLeft = '0px';
 }
 
+function modalHider() {
+  $('.modal').hide();
+  $('.backdrop').hide();
+}
+
 if (toggleButton) {
   toggleButton.addEventListener('click', openNavigation);
 }
 
 if (closeBtn) {
   closeBtn.addEventListener('click', closeNavigation);
+}
+
+////ADMIN MODAL AND BACKDROP
+
+if ($('.backdrop')) {
+  $('.backdrop').on('click', function () {
+    modalHider();
+  });
+}
+
+if ($('.modal')) {
+  $('.modal .modal-dismiss-btn').on('click', function () {
+    modalHider();
+  });
 }
