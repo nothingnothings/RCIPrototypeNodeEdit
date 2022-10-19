@@ -49,13 +49,9 @@ const User = require('./models/user');
 //   },
 // });
 
-
-
 //ONLY .PNGS
 const fileFilter = (_req, file, cb) => {
-  if (
-    file.mimetype === 'image/png'
-  ) {
+  if (file.mimetype === 'image/png') {
     cb(null, true);
   } else {
     cb(null, false);
@@ -150,13 +146,7 @@ function uploadFile(req, res, next) {
       break;
   }
 
-  console.log(req.body.pageNumber);
-
   if (req.file) {
-    console.log(req.file, 'FILE');
-
-    // uploadImage(`cloudinary://${keys.cloudinaryApiKey}:${keys.cloudinaryApiSecret}:${keys.cloudinaryCloudName}`)
-
     let streamUpload = (req) => {
       return new Promise((resolve, reject) => {
         let stream = cloudinary.uploader.upload_stream(
@@ -167,7 +157,7 @@ function uploadFile(req, res, next) {
             unique_filename: false,
             overwrite: true,
             backup: false,
-            invalidate: true
+            invalidate: true,
           },
 
           (error, result) => {
@@ -193,13 +183,24 @@ function uploadFile(req, res, next) {
       //   message: 'Updated Banner',
       //   path: `/${pageName}`
       // });
-      req.flash('message', `Banner da página ${pageName.slice(1)} atualizado com sucesso.`)
+      req.flash(
+        'message',
+        `Banner da página ${pageName.slice(1)} atualizado com sucesso.`
+      );
 
-      res.redirect(302, `${pageName}` );
-    });
+      res.redirect(302, `${pageName}`);
+    })
+    .catch(
+      (_err) => {  
+        req.flash(
+          'errorMessage',
+          `Falha na alteração do Banner da página ${pageName.slice(1)}.`
+        );
+        res.redirect(302, `${pageName}`);
+      }
+    )
   }
 }
-
 
 app.use(
   session({
