@@ -127,9 +127,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 function uploadFile(req, res, next) {
   let pageNumber;
 
-  console.log(req.query.banner)
-
-  switch (req.pageNumber) {
+  switch (req.query.banner) {
     case '1':
       pageNumber = 'Retangulo98';
     case '2':
@@ -143,7 +141,7 @@ function uploadFile(req, res, next) {
   }
 
 
-  console.log(pageNumber, req.pageNumber);
+  console.log(pageNumber);
 
   if (req.file) {
     console.log(req.file, 'FILE');
