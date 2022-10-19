@@ -133,16 +133,16 @@ function uploadFile(req, res, next) {
   switch (req.body.pageNumber) {
     case '1':
       pageNumber = 'Retangulo98';
-      pageName = 'index';
+      pageName = '/';
     case '2':
       pageNumber = 'Retangulo99';
-      pageName = 'quem-somos';
+      pageName = '/quem-somos';
     case '3':
       pageNumber = 'Retangulo100';
-      pageName = 'o-que-fazemos';
+      pageName = '/o-que-fazemos';
     case '4':
       pageNumber = 'Retangulo101';
-      pageName = 'RCInsights';
+      pageName = '/RCInsights';
   }
 
   console.log(req.body.pageNumber);
@@ -182,10 +182,13 @@ function uploadFile(req, res, next) {
     }
 
     upload(req).then((response) => {
-      res.status(200).render(`index/${pageName}`, {
-        message: 'Updated Banner',
-        path: `/${pageName}`
-      });
+      // res.status(200).render(`index/${pageName}`, {
+      //   message: 'Updated Banner',
+      //   path: `/${pageName}`
+      // });
+
+
+      res.redirect(302, `${pageName}` );
     });
   }
 }
