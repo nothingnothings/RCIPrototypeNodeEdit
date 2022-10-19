@@ -307,7 +307,7 @@ const csrfProtection = csrf();
 //   })
 // );
 
-app.use(flash());
+// app.use(flash());
 
 app.use(csrfProtection);
 

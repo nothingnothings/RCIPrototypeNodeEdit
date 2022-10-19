@@ -5,9 +5,15 @@
   <body>
     <%- include('../includes/navigation.ejs'); %>
       <main>
-        
-        <!-- CONTENT GOES HERE-->
-
+        <% if (message !== '' || errorMessage !== '' ) { %>
+            <div class="backdrop"></div>
+            <div class="admin-modal <%= errorMessage ? 'error-modal' : '' %>">
+                <h5>
+                <%= message || errorMessage %>
+            </h5>
+            <button class="modal-dismiss-btn">Certo</button>
+            </div>
+                <%   } %>
         <section id="banner">
             <div class="container-fluid px-0 position-relative d-flex flex-column justify-content-center align-items-center">
                 <div class="container-fluid d-flex imgBackground-3 justify-content-center align-items-center"></div>
