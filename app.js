@@ -154,15 +154,18 @@ function uploadFile(req, res) {
 
 
 
-    return res.status(200).json( {
-      message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
-      status: 200,
-    });
+    // return res.status(200).json( {
+    //   message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
+    //   status: 200,
+    // });
+
+
+      return res.status(200).render('admin/edit-page', {
+    message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
+    status: 200,
+  });
   }
-  // return res.status(200).render('admin/edit-page', {
-  //   message: `Atualização do banner da página ${pageNumber} bem-sucedida.`,
-  //   status: 200,
-  // });
+
 
 
 }
