@@ -182,7 +182,7 @@ function uploadFile(req, res, next) {
     }
 
     upload(req).then((response) => {
-      res.status(200).render(`/index/${pageName}`, {
+      res.status(200).render(`index/${pageName}`, {
         message: 'Updated Banner',
       });
     });
