@@ -115,6 +115,7 @@ function uploadFile(req, res) {
 
   if (req.file) {
     console.log(req.file, 'FILE');
+
     imageKit.upload(
       {
         file: req.file.buffer,
@@ -122,6 +123,7 @@ function uploadFile(req, res) {
         folder: 'background_images',
         useUniqueFileName: false,
         overwriteFile: true,
+
    
       },
 
@@ -149,16 +151,20 @@ function uploadFile(req, res) {
 
       }
     );
+
+
+
+    return res.status(200).json( {
+      message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
+      status: 200,
+    });
   }
   // return res.status(200).render('admin/edit-page', {
   //   message: `Atualização do banner da página ${pageNumber} bem-sucedida.`,
   //   status: 200,
   // });
 
-  return res.status(200).json( {
-    message: `Atualização do banner da página ${pageNumber} bem-sucedida.`,
-    status: 200,
-  });
+
 }
 
 app.use(
