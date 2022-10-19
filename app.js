@@ -128,13 +128,13 @@ function uploadFile(req, res, next) {
   let pageNumber;
 
   switch (req.query.banner) {
-    case '1':
+    case 1:
       pageNumber = 'Retangulo98';
-    case '2':
+    case 2:
       pageNumber = 'Retangulo99';
-    case '3':
+    case 3:
       pageNumber = 'Retangulo100';
-    case '4':
+    case 4:
       pageNumber = 'Retangulo101';
     default:
       pageNumber = 'Retangulo98';
