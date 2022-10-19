@@ -134,15 +134,19 @@ function uploadFile(req, res, next) {
     case '1':
       pageNumber = 'Retangulo98';
       pageName = '/';
+      break;
     case '2':
       pageNumber = 'Retangulo99';
       pageName = '/quem-somos';
+      break;
     case '3':
       pageNumber = 'Retangulo100';
       pageName = '/o-que-fazemos';
+      break;
     case '4':
       pageNumber = 'Retangulo103';
       pageName = '/RCInsights';
+      break;
   }
 
   console.log(req.body.pageNumber);
