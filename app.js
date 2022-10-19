@@ -193,7 +193,7 @@ function uploadFile(req, res, next) {
       //   message: 'Updated Banner',
       //   path: `/${pageName}`
       // });
-
+      req.flash('message', `Banner da página ${pageName.slice(1)} atualizado com sucesso.`)
 
       res.redirect(302, `${pageName}` );
     });
