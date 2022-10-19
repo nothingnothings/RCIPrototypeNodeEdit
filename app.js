@@ -123,8 +123,6 @@ function uploadFile(req, res) {
         folder: 'background_images',
         useUniqueFileName: false,
         overwriteFile: true,
-
-   
       },
 
       (err, res) => {
@@ -148,28 +146,21 @@ function uploadFile(req, res) {
           });
         }
 
+        console.log(res, res.url);
 
+        return res.status(200).render('./index', {
+          message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
+          status: 200,
+          path: '/',
+        });
       }
     );
-
-
 
     // return res.status(200).json( {
     //   message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
     //   status: 200,
     // });
-
-    console.log(res.url);
-
-      return res.status(200).render('index', {
-    message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
-    status: 200,
-    path: '/'
-  });
   }
-
-
-
 }
 
 app.use(
