@@ -5,8 +5,8 @@
   <body>
     <%- include('../includes/navigation.ejs'); %>
       <main>
-<!-- 
-        <% if (message || errorMessage ) { %>
+
+        <% if (message !== '' || errorMessage !== '' ) { %>
             <div class="backdrop"></div>
             <div class="admin-modal <%= errorMessage ? 'error-modal' : '' %>">
                 <h5>
@@ -14,7 +14,7 @@
             </h5>
             <button class="modal-dismiss-btn">Certo</button>
             </div>
-                <%   } %> -->
+                <%   } %>
 
         <section id="banner">
           <div class="container-fluid px-0 position-relative d-flex flex-column justify-content-center align-items-center">

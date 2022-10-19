@@ -9,6 +9,8 @@ exports.getStartingPage = (req, res, _next) => {
 
   return res.render('index/index', {
     path: '/',
+    message: '',
+    errorMessage: ''
   
   });
 };
