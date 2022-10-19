@@ -178,7 +178,21 @@ function uploadFile(req, res, next) {
       console.log(result);
     }
 
-    upload(req);
+    upload(req).then(
+      (response) => {
+
+        res.status(200).render(
+          '/admin/edit-page',
+
+
+          {
+            path: '/admin/edit-page',
+            message: 'Updated Banner'
+          }
+        )
+
+      }
+    )
   }
 }
 
