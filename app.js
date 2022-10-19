@@ -118,11 +118,17 @@ function uploadFile(req, res) {
   if (req.file) {
     console.log(req.file, 'FILE');
 
-    cloudinary.v2.uploader.upload(req.file,
-    { public_id: "olympic_flag" }, 
-    function(error, result) {console.log(result); });
+    cloudinary.v2.uploader.upload(
+      req.file,
+      { public_id: `${pageNumber}` },
 
 
+
+      
+      function (error, result) {
+        console.log(result);
+      }
+    );
 
     // imageKit.upload(
     //   {
@@ -155,7 +161,6 @@ function uploadFile(req, res) {
     //     }
 
     //     console.log(res, res.url);
-
 
     //     fs.readFile(
 
