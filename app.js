@@ -182,7 +182,7 @@ function uploadFile(req, res, next) {
       (response) => {
 
         res.status(200).render(
-          '/admin/edit-page',
+          '/index',
 
 
           {
