@@ -76,7 +76,7 @@ cloudinary.config({
   secure: true,
   cloud_name: keys.cloudinaryCloudName,
   api_key: keys.cloudinaryApiKey,
-  api_secret: keys.cloudinaryApiSecret
+  api_secret: keys.cloudinaryApiSecret,
 });
 
 // const uploadImage = async (imagePath) => {
@@ -128,15 +128,15 @@ function uploadFile(req, res, next) {
 
   switch (req.pageNumber) {
     case '1':
-      pageNumber = 'Retangulo98.png';
+      pageNumber = 'Retangulo98';
     case '2':
-      pageNumber = 'Retangulo99.png';
+      pageNumber = 'Retangulo99';
     case '3':
-      pageNumber = 'Retangulo100.png';
+      pageNumber = 'Retangulo100';
     case '4':
-      pageNumber = 'Retangulo101.png';
+      pageNumber = 'Retangulo101';
     default:
-      pageNumber = 'Retangulo98.png';
+      pageNumber = 'Retangulo98';
   }
 
   if (req.file) {
@@ -147,24 +147,22 @@ function uploadFile(req, res, next) {
     let streamUpload = (req) => {
       return new Promise((resolve, reject) => {
         let stream = cloudinary.uploader.upload_stream(
-
           {
             folder: 'background-images',
             use_filename: false,
             public_id: pageNumber,
             unique_filename: false,
-            overwrite: true
+            overwrite: true,
           },
-          
-          
-          
+
           (error, result) => {
-          if (result) {
-            resolve(result);
-          } else {
-            reject(error);
+            if (result) {
+              resolve(result);
+            } else {
+              reject(error);
+            }
           }
-        });
+        );
 
         streamifier.createReadStream(req.file.buffer).pipe(stream);
       });
@@ -174,7 +172,6 @@ function uploadFile(req, res, next) {
       let result = await streamUpload(req);
       console.log(result);
     }
-
 
     upload(req);
   }
