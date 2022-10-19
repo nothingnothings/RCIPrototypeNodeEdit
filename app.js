@@ -69,7 +69,27 @@ const fileFilter = (_req, file, cb) => {
 //   urlEndpoint: keys.imageKitUrlEndpoint,
 // });
 
-const cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  secure: true,
+});
+
+const uploadImage = async (imagePath) => {
+  const options = {
+    use_filename: true,
+    unique_filename: false,
+    overwrite: true,
+  };
+
+  try {
+    const result = await cloudinary.uploader.upload(imagePath, options);
+    console.log(result);
+    return result.public_id;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -118,17 +138,7 @@ function uploadFile(req, res) {
   if (req.file) {
     console.log(req.file, 'FILE');
 
-    cloudinary.v2.uploader.upload(
-      req.file,
-      { public_id: `${pageNumber}` },
-
-
-
-      
-      function (error, result) {
-        console.log(result);
-      }
-    );
+    uploadImage(`cloudinary://${keys.cloudinaryApiKey}:${keys.cloudinaryApiSecret}:${keys.cloudinaryCloudName}`)
 
     // imageKit.upload(
     //   {
