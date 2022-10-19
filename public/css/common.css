@@ -692,6 +692,7 @@ main {
   border: 2px solid var(--blue);
   text-decoration: none;
   display: inline-block;
+  background-color: var(--white);
   color: var(--blue);
   font-style: normal;
   font-weight: normal;
