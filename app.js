@@ -103,7 +103,7 @@ const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const { memoryStorage } = require('multer');
 
-const upload = multer({storage: memoryStorage()});
+const upload = multer({ storage: memoryStorage() });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -130,7 +130,6 @@ function uploadFile(req, res, next) {
 
   console.log(typeof req.body.pageNumber, req.query.banner);
 
-
   switch (req.body.pageNumber) {
     case '1':
       pageNumber = 'Retangulo98';
@@ -143,9 +142,8 @@ function uploadFile(req, res, next) {
       pageName = 'o-que-fazemos';
     case '4':
       pageNumber = 'Retangulo101';
-      pageName = 'RCInsights'
+      pageName = 'RCInsights';
   }
-
 
   console.log(req.body.pageNumber);
 
@@ -183,22 +181,14 @@ function uploadFile(req, res, next) {
       console.log(result);
     }
 
-    upload(req).then(
-      (response) => {
-
-        res.status(200).render(
-          __dirname + `/index/${pageName}`,
-
-
-          {
-            message: 'Updated Banner'
-          }
-        )
-
-      }
-    )
+    upload(req).then((response) => {
+      res.status(200).render(__dirname + `/index/${pageName}`, {
+        message: 'Updated Banner',
+      });
+    });
   }
 }
+
 
 app.use(
   session({
