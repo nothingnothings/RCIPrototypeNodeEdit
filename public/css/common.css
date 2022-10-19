@@ -667,12 +667,17 @@ main {
 
 .admin-modal {
   z-index: 300;
+  box-sizing: border-box;
   top: 50%;
   left: 50%;
-  width: 20rem;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
   height: 20rem;
   border-radius: 25px;
-  background-color: var(--white-1); }
+  background-color: var(--white-1);
+  position: fixed; }
 
 .error-modal {
   border: 3px solid #dd1111; }
