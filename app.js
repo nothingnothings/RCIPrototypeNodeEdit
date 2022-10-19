@@ -61,13 +61,15 @@ const fileFilter = (_req, file, cb) => {
   }
 };
 
-const ImageKit = require('imagekit');
+// const ImageKit = require('imagekit');
 
-const imageKit = new ImageKit({
-  publicKey: keys.imageKitPublicKey,
-  privateKey: keys.imageKitPrivateKey,
-  urlEndpoint: keys.imageKitUrlEndpoint,
-});
+// const imageKit = new ImageKit({
+//   publicKey: keys.imageKitPublicKey,
+//   privateKey: keys.imageKitPrivateKey,
+//   urlEndpoint: keys.imageKitUrlEndpoint,
+// });
+
+const cloudinary = require('cloudinary');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -116,45 +118,56 @@ function uploadFile(req, res) {
   if (req.file) {
     console.log(req.file, 'FILE');
 
-    imageKit.upload(
-      {
-        file: req.file.buffer,
-        fileName: pageNumber,
-        folder: 'background_images',
-        useUniqueFileName: false,
-        overwriteFile: true,
-      },
+    cloudinary.v2.uploader.upload(req.file,
+    { public_id: "olympic_flag" }, 
+    function(error, result) {console.log(result); });
 
-      (err, res) => {
-        if (err) {
-          // return res.status(500).json({
-          //   status: 'failed',
-          //   message:
-          //     'An error occured during the file upload. Please try again.',
-          // });
 
-          // return res.status(500).render('admin/edit-page', {
-          //   message:
-          //     'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
-          //   status: 500,
-          // });
 
-          return res.status(500).json({
-            message:
-              'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
-            status: 500,
-          });
-        }
+    // imageKit.upload(
+    //   {
+    //     file: req.file.buffer,
+    //     fileName: pageNumber,
+    //     folder: 'background_images',
+    //     useUniqueFileName: false,
+    //     overwriteFile: true,
+    //   },
 
-        console.log(res, res.url);
+    //   (err, res) => {
+    //     if (err) {
+    //       // return res.status(500).json({
+    //       //   status: 'failed',
+    //       //   message:
+    //       //     'An error occured during the file upload. Please try again.',
+    //       // });
 
-        return res.status(200).render('./index', {
-          message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
-          status: 200,
-          path: '/',
-        });
-      }
-    );
+    //       // return res.status(500).render('admin/edit-page', {
+    //       //   message:
+    //       //     'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
+    //       //   status: 500,
+    //       // });
+
+    //       return res.status(500).json({
+    //         message:
+    //           'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
+    //         status: 500,
+    //       });
+    //     }
+
+    //     console.log(res, res.url);
+
+
+    //     fs.readFile(
+
+    //     )
+
+    //     return res.status(200).render('./index', {
+    //       message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
+    //       status: 200,
+    //       path: '/',
+    //     });
+    //   }
+    // );
 
     // return res.status(200).json( {
     //   message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
