@@ -127,6 +127,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 function uploadFile(req, res, next) {
   let pageNumber;
 
+  console.log(typeof req.query.banner, req.query.banner);
+
+
   switch (req.query.banner) {
     case 1:
       pageNumber = 'Retangulo98';
