@@ -314,6 +314,7 @@ if ($('.backdrop')) {
 }
 
 if ($('.admin-modal')) {
+  
   $('.admin-modal .modal-dismiss-btn').on('click', function () {
     modalHider();
   });

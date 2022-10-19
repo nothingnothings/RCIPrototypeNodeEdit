@@ -9,12 +9,14 @@
         <% if (message !== '' || errorMessage !== '' ) { %>
             <div class="backdrop"></div>
             <div class="admin-modal <%= errorMessage ? 'error-modal' : '' %> d-flex flex-column align-items-center justify-content-center">
+                <div class="modal-content mx-auto my-auto">
                 <h5 class="mb-2">
                 <%= message || errorMessage %>
             </h5>
             <div class="d-flex justify-content-center mt-2">
             <button class="modal-dismiss-btn form-button">Certo</button>
         </div>
+    </div>
             </div>
                 <%   } %>
 
