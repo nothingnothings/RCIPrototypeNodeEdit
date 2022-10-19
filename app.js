@@ -101,8 +101,9 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const { memoryStorage } = require('multer');
 
-const upload = multer();
+const upload = multer({storage: memoryStorage()});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
