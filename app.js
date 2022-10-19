@@ -163,6 +163,9 @@ function uploadFile(req, res) {
       return res.status(200).render('admin/edit-page', {
     message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
     status: 200,
+    path: '/admin/edit-page',
+    pageTitle: 'Admin Edit Site Page',
+    csrfToken: req.csrfToken()
   });
   }
 
