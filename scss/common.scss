@@ -922,9 +922,10 @@ main {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
+  opacity: 0;
 }
 
 .admin-modal {
@@ -932,8 +933,9 @@ main {
   box-sizing: border-box;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation-duration: 1s;
+  -webkit-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
   width: 450px;
   max-width: calc(100% - 40px);
   max-height: calc(100% - 40px);
