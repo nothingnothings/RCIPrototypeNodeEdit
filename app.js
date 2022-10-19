@@ -181,8 +181,8 @@ function uploadFile(req, res, next) {
     upload(req).then(
       (response) => {
 
-        res.status(200).render(
-          __dirname + '/index',
+        res.status(200).rende(
+          __dirname + '/index/index',
 
 
           {
