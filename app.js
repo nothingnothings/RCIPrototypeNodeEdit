@@ -70,26 +70,27 @@ const fileFilter = (_req, file, cb) => {
 // });
 
 const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
 
 cloudinary.config({
   secure: true,
 });
 
-const uploadImage = async (imagePath) => {
-  const options = {
-    use_filename: true,
-    unique_filename: false,
-    overwrite: true,
-  };
+// const uploadImage = async (imagePath) => {
+//   const options = {
+//     use_filename: true,
+//     unique_filename: false,
+//     overwrite: true,
+//   };
 
-  try {
-    const result = await cloudinary.uploader.upload(imagePath, options);
-    console.log(result);
-    return result.public_id;
-  } catch (error) {
-    console.log(error);
-  }
-};
+//   try {
+//     const result = await cloudinary.uploader.upload(imagePath, options);
+//     console.log(result);
+//     return result.public_id;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -98,7 +99,7 @@ const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -119,7 +120,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 //   next();
 // });
 
-function uploadFile(req, res) {
+function uploadFile(req, res, next) {
   let pageNumber;
 
   switch (req.pageNumber) {
@@ -138,56 +139,26 @@ function uploadFile(req, res) {
   if (req.file) {
     console.log(req.file, 'FILE');
 
-    uploadImage(`cloudinary://${keys.cloudinaryApiKey}:${keys.cloudinaryApiSecret}:${keys.cloudinaryCloudName}`)
+    // uploadImage(`cloudinary://${keys.cloudinaryApiKey}:${keys.cloudinaryApiSecret}:${keys.cloudinaryCloudName}`)
 
-    // imageKit.upload(
-    //   {
-    //     file: req.file.buffer,
-    //     fileName: pageNumber,
-    //     folder: 'background_images',
-    //     useUniqueFileName: false,
-    //     overwriteFile: true,
-    //   },
+    let streamUpload = (req) => {
+      return new Promise((resolve, reject) => {
+        let stream = cloudinary.uploader.upload_stream((error, result) => {
+          if (result) {
+            resolve(result);
+          } else {
+            reject(error);
+          }
+        });
 
-    //   (err, res) => {
-    //     if (err) {
-    //       // return res.status(500).json({
-    //       //   status: 'failed',
-    //       //   message:
-    //       //     'An error occured during the file upload. Please try again.',
-    //       // });
+        streamifier.createReadStream(req.file.buffer).pipe(stream);
+      });
+    };
 
-    //       // return res.status(500).render('admin/edit-page', {
-    //       //   message:
-    //       //     'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
-    //       //   status: 500,
-    //       // });
-
-    //       return res.status(500).json({
-    //         message:
-    //           'Um erro ocorreu durante o envio do arquivo, por favor tente novamente.',
-    //         status: 500,
-    //       });
-    //     }
-
-    //     console.log(res, res.url);
-
-    //     fs.readFile(
-
-    //     )
-
-    //     return res.status(200).render('./index', {
-    //       message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
-    //       status: 200,
-    //       path: '/',
-    //     });
-    //   }
-    // );
-
-    // return res.status(200).json( {
-    //   message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
-    //   status: 200,
-    // });
+    async function upload(req) {
+      let result = await streamUpload(req);
+      console.log(result);
+    }
   }
 }
 
