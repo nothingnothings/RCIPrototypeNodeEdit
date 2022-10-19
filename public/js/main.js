@@ -293,7 +293,7 @@ function closeNavigation() {
 }
 
 function modalHider() {
-  $('.modal').hide();
+  $('.admin-modal').hide();
   $('.backdrop').hide();
 }
 
@@ -313,8 +313,8 @@ if ($('.backdrop')) {
   });
 }
 
-if ($('.modal')) {
-  $('.modal .modal-dismiss-btn').on('click', function () {
+if ($('.admin-modal')) {
+  $('.admin-modal .modal-dismiss-btn').on('click', function () {
     modalHider();
   });
 }
