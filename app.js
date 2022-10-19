@@ -140,7 +140,7 @@ function uploadFile(req, res, next) {
   }
 
 
-  console.log(pageNumber);
+  console.log(pageNumber, req.pageNumber);
 
   if (req.file) {
     console.log(req.file, 'FILE');
