@@ -161,7 +161,7 @@ function uploadFile(req, res) {
 
     console.log(res.url);
 
-      return res.status(200).render('/index', {
+      return res.status(200).render('index', {
     message: `Atualização do banner da página ${req.pageNumber} bem-sucedida.`,
     status: 200,
   });
