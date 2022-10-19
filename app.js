@@ -130,7 +130,7 @@ function uploadFile(req, res, next) {
   console.log(typeof req.query.banner, req.query.banner);
 
 
-  switch (req.query.banner) {
+  switch (req.body.pageNumber) {
     case 1:
       pageNumber = 'Retangulo98';
     case 2:
@@ -144,7 +144,7 @@ function uploadFile(req, res, next) {
   }
 
 
-  console.log(req.body.pageNumber, req.body, req.params, req.query);
+  console.log(req.body.pageNumber);
 
   if (req.file) {
     console.log(req.file, 'FILE');
