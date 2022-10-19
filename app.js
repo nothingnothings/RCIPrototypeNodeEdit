@@ -186,7 +186,6 @@ function uploadFile(req, res, next) {
 
 
           {
-            path: '/admin/edit-page',
             message: 'Updated Banner'
           }
         )
