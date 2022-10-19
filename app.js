@@ -139,6 +139,9 @@ function uploadFile(req, res, next) {
       pageNumber = 'Retangulo98';
   }
 
+
+  console.log(pageNumber);
+
   if (req.file) {
     console.log(req.file, 'FILE');
 
