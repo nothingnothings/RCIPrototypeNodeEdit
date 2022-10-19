@@ -1,8 +1,14 @@
 const keys = require('../config/keys');
 
 exports.getStartingPage = (req, res, _next) => {
+
+
+  console.log(req.flash('message'), 'FLASHMESSAGE');
+
+
   return res.render('index/index', {
     path: '/',
+  
   });
 };
 

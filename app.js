@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const flash = require('connect-flash');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const { validationResult } = require('express-validator');
@@ -210,6 +211,8 @@ app.use(
     store: store,
   })
 );
+
+app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.session.isLoggedIn;
