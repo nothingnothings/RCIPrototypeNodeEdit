@@ -74,9 +74,7 @@
 
 ///BANNER WARNING
 
-
-
-.banner-warning {
+.admin-warning {
   width: 21px;
   height: 21px;
   position: relative;
@@ -86,7 +84,8 @@
   vertical-align: middle;
 }
 
-.banner-warning:before, .banner-warning:after {
+
+.admin-warning:before, .admin-warning:after {
   content: '';
   display: block;
   position: absolute;
