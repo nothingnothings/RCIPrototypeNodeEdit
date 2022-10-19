@@ -44,21 +44,21 @@ main {
   filter: brightness(0.25); }
 
 .imgBackground-2 {
-  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/v1666157755/background-images/Retangulo2");
+  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/background-images/Retangulo2");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
   filter: brightness(0.25); }
 
 .imgBackground-3 {
-  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/v1666157755/background-images/Retangulo3");
+  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/background-images/Retangulo3");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
   filter: brightness(0.25); }
 
 .imgBackground-4 {
-  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/v1666157755/background-images/Retangulo4");
+  background-image: url("http://res.cloudinary.com/dtv8h80b7/image/upload/background-images/Retangulo4");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 100vh;
