@@ -912,9 +912,6 @@ main {
   word-break: keep-all;
 }
 
-
-
-
 /////MODAL
 
 .backdrop {
@@ -941,7 +938,7 @@ main {
   max-height: calc(100% - 40px);
   height: 20rem;
   border-radius: 25px;
-  background-color: var(--white-2);
+  background-color: var(--white);
   position: fixed;
 }
 
@@ -953,4 +950,19 @@ main {
 
 .error-modal {
   border: 3px solid rgb(221, 17, 17);
+}
+
+.modal-dismiss-btn {
+  border: 2px solid var(--blue);
+  text-decoration: none;
+  display: inline-block;
+  color: var(--blue);
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 21px;
+  line-height: 26px;
+  font-family: Atkinson Hyperlegible;
+  letter-spacing: 0px;
+  opacity: 1;
 }

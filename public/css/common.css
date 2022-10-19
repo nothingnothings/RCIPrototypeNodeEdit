@@ -676,7 +676,7 @@ main {
   max-height: calc(100% - 40px);
   height: 20rem;
   border-radius: 25px;
-  background-color: var(--white-2);
+  background-color: var(--white);
   position: fixed; }
 
 .admin-modal h1 {
@@ -686,3 +686,17 @@ main {
 
 .error-modal {
   border: 3px solid #dd1111; }
+
+.modal-dismiss-btn {
+  border: 2px solid var(--blue);
+  text-decoration: none;
+  display: inline-block;
+  color: var(--blue);
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 21px;
+  line-height: 26px;
+  font-family: Atkinson Hyperlegible;
+  letter-spacing: 0px;
+  opacity: 1; }
