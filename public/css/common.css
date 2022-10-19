@@ -676,7 +676,7 @@ main {
   max-height: calc(100% - 40px);
   height: 20rem;
   border-radius: 25px;
-  background-color: var(--white-1);
+  background-color: var(--white-2);
   position: fixed; }
 
 .error-modal {
