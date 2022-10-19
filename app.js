@@ -146,7 +146,19 @@ function uploadFile(req, res, next) {
 
     let streamUpload = (req) => {
       return new Promise((resolve, reject) => {
-        let stream = cloudinary.uploader.upload_stream((error, result) => {
+        let stream = cloudinary.uploader.upload_stream(
+
+          {
+            folder: 'background-images',
+            use_filename: false,
+            public_id: pageNumber,
+            unique_filename: false,
+            overwrite: true
+          },
+          
+          
+          
+          (error, result) => {
           if (result) {
             resolve(result);
           } else {
