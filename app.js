@@ -200,7 +200,7 @@ app.use((req, res, next) => {
 });
 
 app.post(
-  '/admin/banner-edit',
+  '/admin/banner-edit/:banner',
   upload.single('file'),
 
   uploadFile
