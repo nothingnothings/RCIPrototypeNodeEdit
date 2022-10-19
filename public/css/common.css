@@ -679,5 +679,10 @@ main {
   background-color: var(--white-2);
   position: fixed; }
 
+.admin-modal h1 {
+  text-align: center;
+  cursor: default;
+  margin: 0 0 2rem 0; }
+
 .error-modal {
   border: 3px solid #dd1111; }

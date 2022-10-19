@@ -945,6 +945,12 @@ main {
   position: fixed;
 }
 
+.admin-modal h1 {
+  text-align: center;
+  cursor: default;
+  margin: 0 0 2rem 0;
+}
+
 .error-modal {
   border: 3px solid rgb(221, 17, 17);
 }
