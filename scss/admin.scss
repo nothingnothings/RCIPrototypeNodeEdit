@@ -77,11 +77,35 @@
 
 
 .banner-warning {
-  width: 18px;
-  height: 18px;
-  border-radius: 25px;
+  width: 21px;
+  height: 21px;
+  position: relative;
+  border-radius: 100px;
   background-color: var(--white);
   display: inline-block;
   vertical-align: middle;
 }
 
+.banner-warning:before, .banner-warning:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.banner-warning:before {
+  top: 15%;
+  left: 30%;
+  height: 10px;
+  width: 3px;
+  border: solid var(--blue);
+  border-width: 0 3px 0 0;
+}
+
+.banner-warning:after {
+  top: 70%;
+  left: 30%;
+  height: 3pxx;
+  width: 3px;
+  border: solid var(--blue);
+  border-width: 0 3px 0 0;
+}
