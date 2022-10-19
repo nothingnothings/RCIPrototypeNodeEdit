@@ -165,6 +165,7 @@ function uploadFile(req, res, next) {
             public_id: pageNumber,
             unique_filename: false,
             overwrite: true,
+            backup: false
           },
 
           (error, result) => {
