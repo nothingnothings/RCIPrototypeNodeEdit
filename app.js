@@ -49,11 +49,12 @@ const User = require('./models/user');
 //   },
 // });
 
+
+
+//ONLY .PNGS
 const fileFilter = (_req, file, cb) => {
   if (
-    file.mimetype === 'image/png' ||
-    file.mimetype === 'image/jpg' ||
-    file.mimetype === 'image/jpeg'
+    file.mimetype === 'image/png'
   ) {
     cb(null, true);
   } else {
@@ -132,19 +133,19 @@ function uploadFile(req, res, next) {
 
   switch (req.body.pageNumber) {
     case '1':
-      pageNumber = 'Retangulo98';
+      pageNumber = 'Retangulo1';
       pageName = '/';
       break;
     case '2':
-      pageNumber = 'Retangulo99';
+      pageNumber = 'Retangulo2';
       pageName = '/quem-somos';
       break;
     case '3':
-      pageNumber = 'Retangulo100';
+      pageNumber = 'Retangulo3';
       pageName = '/o-que-fazemos';
       break;
     case '4':
-      pageNumber = 'Retangulo103';
+      pageNumber = 'Retangulo4';
       pageName = '/RCInsights';
       break;
   }
