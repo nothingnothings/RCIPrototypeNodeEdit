@@ -159,6 +159,9 @@ function uploadFile(req, res, next) {
       let result = await streamUpload(req);
       console.log(result);
     }
+
+
+    upload(req);
   }
 }
 
