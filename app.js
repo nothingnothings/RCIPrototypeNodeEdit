@@ -11,7 +11,6 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 const { validationResult } = require('express-validator');
 
-const flash = require('connect-flash');
 const csrf = require('csurf');
 
 const keys = require('./config/keys');
