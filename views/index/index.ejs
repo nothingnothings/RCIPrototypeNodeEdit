@@ -9,8 +9,8 @@
         <% if (message !== '' || errorMessage !== '' ) { %>
             <div class="backdrop"></div>
             <div class="admin-modal <%= errorMessage ? 'error-modal' : '' %> text-center">
-                <div class="modal-content mt-5 pt-5">
-                <h5 class="mb-5 pb-5">
+                <div class="modal-content mt-5 pt-5 mx-5">
+                <h5 class="mb-5 pb-3">
                 <%= message || errorMessage %>
             </h5>
             <div class="d-flex justify-content-center mt-2">
