@@ -1,14 +1,12 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/login.css">
 <link rel="stylesheet" href="/css/admin.css">
-<script src="/js/admin.js" defer></script>
 
 </head>
 <body>
     <header>
         <div class="navbar edit-page-navbar bg-secondary">   
              <ul class="navbar-nav ml-auto">
-                
                 <div>
                 <form method="POST" action="/logout/?_csrf=<%= csrfToken %>">
                     <button type="submit"  method="POST" class="logout-button">Logout</button>

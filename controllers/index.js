@@ -1,5 +1,3 @@
-const keys = require('../config/keys');
-
 exports.getStartingPage = (req, res, _next) => {
 
   return res.render('index/index', {

@@ -9,10 +9,4 @@ router.get(
   adminController.getAdminPage
 );
 
-
-// router.post(
-//   '/banner-edit',
-//   adminController.bannerPost
-// )
-
 module.exports = router;
