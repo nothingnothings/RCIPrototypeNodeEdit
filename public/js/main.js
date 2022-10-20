@@ -1,5 +1,3 @@
-//HTML sanitizer
-
 var toggleButton = document.querySelector('.toggle-button');
 var closeBtn = document.querySelector('.closebtn');
 
