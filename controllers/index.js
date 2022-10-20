@@ -14,7 +14,7 @@ exports.getStartingPage = (req, res, _next) => {
     // errorMessage: req.flash('errorMessage')[0] !== '' ? req.flash('errorMessage')[0] : ''
 
     message: req.flash('message'),
-    errorMessage: req.flash('errorMessage');
+    errorMessage: req.flash('errorMessage')
   });
 };
 
