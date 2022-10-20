@@ -22,9 +22,8 @@ exports.postLogin = (req, res, next) => {
     .then((user) => {
       if (user === null) {
         if (!errors.isEmpty()) {
-          return res.status(422).render('/login', {
-            pageTitle: 'Login',
-            path: '/login',
+          return res.status(422).render('/admin/login', {
+            path: 'admin/login',
             errorMessage: errors.array()[0].msg,
             oldInput: {
               email: email,
