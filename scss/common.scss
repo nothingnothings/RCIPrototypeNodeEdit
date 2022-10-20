@@ -972,6 +972,6 @@ main {
 .modal-dismiss-btn:hover,
 .modal-dismiss-btn:active
  {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--blue) !important;
+  color: var(--white) ;
 }
