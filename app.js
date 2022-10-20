@@ -183,22 +183,24 @@ function uploadFile(req, res, next) {
       //   message: 'Updated Banner',
       //   path: `/${pageName}`
       // });
+      const formattedPageName = pageName.slice(1);
+
       req.flash(
         'message',
-        `Banner da página ${pageName.slice(1)} atualizado com sucesso.`
+        `Banner da página ${formattedPageName} atualizado com sucesso.`
       );
 
-      // console.log(req.flash('message'))
+      console.log(req.flash('message'))
       res.redirect(302, `${pageName}`);
     })
     .catch(
       (_err) => {  
         req.flash(
           'errorMessage',
-          `Falha na alteração do Banner da página ${pageName.slice(1)}.`
+          `Falha na alteração do Banner da página ${formattedPageName}.`
         );
 
-        
+
 
         res.redirect(302, `${pageName}`);
       }
