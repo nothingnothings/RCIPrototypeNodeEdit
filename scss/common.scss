@@ -930,6 +930,7 @@ main {
 .admin-modal {
   z-index: 300;
   box-sizing: border-box;
+  border: 3px solid var(--blue);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -950,7 +951,7 @@ main {
 }
 
 .error-modal {
-  border: 3px solid rgb(221, 17, 17);
+  border: 3px solid #dd1111 !important;
 }
 
 .modal-dismiss-btn {
@@ -970,8 +971,17 @@ main {
 }
 
 .modal-dismiss-btn:hover,
-.modal-dismiss-btn:active
- {
+.modal-dismiss-btn:active {
   background-color: var(--blue) !important;
-  color: var(--white) ;
+  color: var(--white);
+}
+
+.error-modal .modal-dismiss-btn {
+  border: 2px solid #dd1111;
+  color: #dd1111;
+}
+
+.error-modal .modal-dismiss-btn {
+  background-color: #dd1111 !important;
+  color: var(--white);
 }
