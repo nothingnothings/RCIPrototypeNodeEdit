@@ -6,6 +6,7 @@ exports.getStartingPage = (req, res, _next) => {
   // console.log(req.flash('message'), 'FLASHMESSAGE');
   // console.log(req.flash('errorMessage'), 'FLASHMESSAGEERROR');
 
+  console.log(req.flash('message')[0] !== '' ? req.flash('message')[0] : '');
 
   return res.render('index/index', {
     path: '/',
