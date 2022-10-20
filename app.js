@@ -190,7 +190,6 @@ function uploadFile(req, res, next) {
         `Banner da página ${formattedPageName} atualizado com sucesso.`
       );
 
-      console.log(req.flash('message'))
       res.redirect(302, `${pageName}`);
     })
     .catch(
