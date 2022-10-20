@@ -3,6 +3,21 @@
 <script src="/js/login.js" defer></script>
 </head>
 <body>
+
+
+    <% if (errorMessage) { %>
+        <div class="backdrop"></div>
+        <div class="admin-modal error-modal text-center">
+            <div class="modal-content mt-5 pt-5 mx-5">
+            <h5 class="mb-5 pb-3">
+            <%= errorMessage %>
+        </h5>
+        <div class="d-flex justify-content-center mt-2">
+        <button class="modal-dismiss-btn form-button">Certo</button>
+    </div>
+</div>
+        </div>
+            <%   } %>
         <main class="d-flex flex-column justify-content-center align-items-center login-main" style="height: 100vh !important;">
                 <div class="">
             <img src="images/android-chrome-192x192.png"
