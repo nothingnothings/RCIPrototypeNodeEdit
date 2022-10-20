@@ -198,6 +198,7 @@ function uploadFile(req, res, next) {
           `Falha na alteração do Banner da página ${pageName.slice(1)}.`
         );
 
+        
 
         res.redirect(302, `${pageName}`);
       }
