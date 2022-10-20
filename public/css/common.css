@@ -713,6 +713,6 @@ main {
   border: 2px solid #dd1111;
   color: #dd1111; }
 
-.error-modal .modal-dismiss-btn {
+.error-modal .modal-dismiss-btn:hover {
   background-color: #dd1111 !important;
   color: var(--white); }
