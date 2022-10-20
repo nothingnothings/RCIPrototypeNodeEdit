@@ -702,3 +702,8 @@ main {
   font-family: Atkinson Hyperlegible;
   letter-spacing: 0px;
   opacity: 1; }
+
+.modal-dismiss-btn:hover,
+.modal-dismiss-btn:active {
+  background-color: var(--blue);
+  color: var(--white); }
