@@ -12,7 +12,7 @@ exports.getStartingPage = (req, res, _next) => {
   //   'LINE'
   // );
 
-  if (req.flash('message' === [])) {
+  if (req.flash('message') === []) {
     console.log('ENTERED');
     message = null;
   } else {
