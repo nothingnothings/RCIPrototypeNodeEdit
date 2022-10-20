@@ -22,7 +22,7 @@ exports.postLogin = (req, res, next) => {
     .then((user) => {
       if (user === null) {
         if (!errors.isEmpty()) {
-          return res.status(422).render('/admin/login', {
+          return res.status(422).render('admin/login', {
             pageTitle: 'Login Page',
             path: 'admin/login',
             errorMessage: errors.array()[0].msg,
@@ -34,7 +34,7 @@ exports.postLogin = (req, res, next) => {
             validationErrors: validationErrors,
           });
         }
-        
+
       } else {
         bcrypt
           .compare(password, user.password)
@@ -60,7 +60,7 @@ exports.postLogin = (req, res, next) => {
           })
           .catch((err) => {
             console.log(err);
-            res.redirect('/admin/login');
+            res.redirect('admin/login');
           });
       }
     })
