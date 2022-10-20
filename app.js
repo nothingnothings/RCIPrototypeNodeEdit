@@ -190,7 +190,7 @@ function uploadFile(req, res, next) {
 
       req.flash(
         'message',
-        `Banner da página ${formattedPageName} atualizado com sucesso.`
+        `Banner da página ${formattedPageName} atualizado com sucesso. Para ver a nova imagem, por favor limpe o cachê desta página.`
       );
 
       res.redirect(302, `${pageName}`);
