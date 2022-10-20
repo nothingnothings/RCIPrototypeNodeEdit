@@ -188,7 +188,7 @@ function uploadFile(req, res, next) {
         `Banner da página ${pageName.slice(1)} atualizado com sucesso.`
       );
 
-      console.log(req.flash('message'))
+      // console.log(req.flash('message'))
       res.redirect(302, `${pageName}`);
     })
     .catch(

@@ -4,13 +4,13 @@ exports.getStartingPage = (req, res, _next) => {
   let message;
   let errorMessage;
 
-  console.log(req.flash('message'), 'FLASHMESSAGE');
-  console.log(req.flash('errorMessage'), 'FLASHMESSAGEERROR');
+  // console.log(req.flash('message'), 'FLASHMESSAGE');
+  // console.log(req.flash('errorMessage'), 'FLASHMESSAGEERROR');
 
-  console.log(
-    req.flash('message')[0] !== '' ? req.flash('message')[0] : '',
-    'LINE'
-  );
+  // console.log(
+  //   req.flash('message')[0] !== '' ? req.flash('message')[0] : '',
+  //   'LINE'
+  // );
 
   if (req.flash('message' === [])) {
     console.log('ENTERED');
