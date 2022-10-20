@@ -34,6 +34,7 @@ exports.postLogin = (req, res, next) => {
             validationErrors: validationErrors,
           });
         }
+        
       } else {
         bcrypt
           .compare(password, user.password)
