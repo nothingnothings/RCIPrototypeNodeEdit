@@ -19,7 +19,7 @@ exports.getStartingPage = (req, res, _next) => {
     message = req.flash('message')[0];
   }
 
-  if (!req.flash('errorMessage') === []) {
+  if (req.flash('errorMessage') === []) {
     errorMessage = null;
   } else {
     errorMessage = req.flash('errorMessage')[0];
