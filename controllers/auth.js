@@ -7,6 +7,7 @@ const User = require('../models/user');
 exports.getLoginPage = (req, res, _next) => {
   res.render('admin/login', {
     path: '/admin/login',
+    errorMessage: null,
     pageTitle: 'Admin Login Page',
   });
 };
