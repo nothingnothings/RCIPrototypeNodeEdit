@@ -132,6 +132,11 @@ function uploadFile(req, res, next) {
 
         res.redirect(302, `${pageName}`);
       });
+  } else {
+    return res.status(400).send({
+      message: "Pedido negado, imagem ausente ou inválida (permitido apenas o formato .png).",
+      success: false
+  });
   }
 }
 
