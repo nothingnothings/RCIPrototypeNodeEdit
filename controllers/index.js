@@ -47,6 +47,7 @@ exports.getArtigoPage = (req, res, next) => {
   });
 };
 
+
 exports.getInsightPage = (req, res, next) => {
   res.render('index/insight', {
     path: '/bonus-page',
