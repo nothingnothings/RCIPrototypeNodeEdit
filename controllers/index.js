@@ -10,8 +10,11 @@ exports.getStartingPage = (req, res, _next) => {
 
   return res.render('index/index', {
     path: '/',
-    message: req.flash('message')[0] !== '' ? req.flash('message')[0] : '',
-    errorMessage: req.flash('errorMessage')[0] !== '' ? req.flash('errorMessage')[0] : ''
+    // message: req.flash('message')[0] !== '' ? req.flash('message')[0] : '',
+    // errorMessage: req.flash('errorMessage')[0] !== '' ? req.flash('errorMessage')[0] : ''
+
+    message: req.flash('message'),
+    errorMessage: req.flash('errorMessage');
   });
 };
 
