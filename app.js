@@ -146,6 +146,9 @@ function uploadFile(req, res, next) {
       break;
   }
 
+  const formattedPageName = pageName.slice(1);
+  
+
   if (req.file) {
     let streamUpload = (req) => {
       return new Promise((resolve, reject) => {
@@ -183,7 +186,7 @@ function uploadFile(req, res, next) {
       //   message: 'Updated Banner',
       //   path: `/${pageName}`
       // });
-      const formattedPageName = pageName.slice(1);
+    
 
       req.flash(
         'message',
