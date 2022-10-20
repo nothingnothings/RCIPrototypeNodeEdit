@@ -9,13 +9,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
-const { validationResult } = require('express-validator');
-
 const csrf = require('csurf');
 
 const keys = require('./config/keys');
 const MONGODB_URI = keys.MONGODB_URI;
-
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions',
@@ -54,7 +51,7 @@ const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const { memoryStorage } = require('multer');
 
-const upload = multer({ storage: memoryStorage() });
+const upload = multer({ storage: memoryStorage(), fileFilter: fileFilter });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
