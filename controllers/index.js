@@ -12,16 +12,17 @@ exports.getStartingPage = (req, res, _next) => {
     'LINE'
   );
 
-  if (!req.flash('message')) {
+  if (req.flash('message' === [])) {
+    console.log('ENTERED');
     message = null;
   } else {
-    message = req.flash('message');
+    message = req.flash('message')[0];
   }
 
-  if (!req.flash('errorMessage')) {
+  if (!req.flash('errorMessage') === []) {
     errorMessage = null;
   } else {
-    errorMessage = req.flash('errorMessage');
+    errorMessage = req.flash('errorMessage')[0];
   }
 
   return res.render('index/index', {
