@@ -58,14 +58,6 @@ const fileFilter = (_req, file, cb) => {
   }
 };
 
-// const ImageKit = require('imagekit');
-
-// const imageKit = new ImageKit({
-//   publicKey: keys.imageKitPublicKey,
-//   privateKey: keys.imageKitPrivateKey,
-//   urlEndpoint: keys.imageKitUrlEndpoint,
-// });
-
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
@@ -75,22 +67,6 @@ cloudinary.config({
   api_key: keys.cloudinaryApiKey,
   api_secret: keys.cloudinaryApiSecret,
 });
-
-// const uploadImage = async (imagePath) => {
-//   const options = {
-//     use_filename: true,
-//     unique_filename: false,
-//     overwrite: true,
-//   };
-
-//   try {
-//     const result = await cloudinary.uploader.upload(imagePath, options);
-//     console.log(result);
-//     return result.public_id;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -108,24 +84,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-// app.post('banner-edit', (req, res, next) => {
-//   console.log(req.body, req.file);
-//   upload(req, res, (error) => {
-//     if (error instanceof multer.MulterError) {
-//       console.log('MULTER ERROR HAS OCCURRED');
-//     } else if (error) {
-//       console.log('AN UNKNOWN ERROR HAS OCCURRED');
-//       console.log(error);
-//     }
-//   });
-//   next();
-// });
-
 function uploadFile(req, res, next) {
   let pageNumber;
   let pageName;
-
-  console.log(typeof req.body.pageNumber, req.query.banner);
 
   switch (req.body.pageNumber) {
     case '1':
@@ -147,7 +108,6 @@ function uploadFile(req, res, next) {
   }
 
   const formattedPageName = pageName.slice(1);
-  
 
   if (req.file) {
     let streamUpload = (req) => {
@@ -178,35 +138,25 @@ function uploadFile(req, res, next) {
 
     async function upload(req) {
       let result = await streamUpload(req);
-      console.log(result);
     }
 
-    upload(req).then((response) => {
-      // res.status(200).render(`index/${pageName}`, {
-      //   message: 'Updated Banner',
-      //   path: `/${pageName}`
-      // });
-    
+    upload(req)
+      .then((_res) => {
+        req.flash(
+          'message',
+          `Banner da página ${formattedPageName} atualizado com sucesso. Para ver a nova imagem, por favor limpe o cachê desta página.`
+        );
 
-      req.flash(
-        'message',
-        `Banner da página ${formattedPageName} atualizado com sucesso. Para ver a nova imagem, por favor limpe o cachê desta página.`
-      );
-
-      res.redirect(302, `${pageName}`);
-    })
-    .catch(
-      (_err) => {  
+        res.redirect(302, `${pageName}`);
+      })
+      .catch((_err) => {
         req.flash(
           'errorMessage',
           `Falha na alteração do Banner da página ${formattedPageName}.`
         );
 
-
-
         res.redirect(302, `${pageName}`);
-      }
-    )
+      });
   }
 }
 
@@ -236,24 +186,7 @@ app.post(
 
 const csrfProtection = csrf();
 
-// app.use(
-//   session({
-//     secret: keys.sessionSecret,
-//     resave: false,
-//     saveUninitialized: false,
-//     store: store,
-//   })
-// );
-
-// app.use(flash());
-
 app.use(csrfProtection);
-
-// app.use((req, res, next) => {
-//   res.locals.isLoggedIn = req.session.isLoggedIn;
-
-//   next();
-// });
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
@@ -277,8 +210,6 @@ app.use((req, _res, next) => {
       next(err);
     });
 });
-
-// next();
 
 app.use('/admin', isAuth, adminRoutes);
 app.use(indexRoutes);
