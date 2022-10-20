@@ -27,29 +27,7 @@ const isAuth = require('./middleware/isAuth');
 
 const User = require('./models/user');
 
-// const fileStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'images/background-images');
-//   },
-//   filename: (req, file, cb) => {
-//     // cb(null, Date.now() + '-' + file.originalname);
-
-//     switch (req.pageName) {
-//       case 'banner-1':
-//         cb(null, './images/background-images/Retangulo98.png');
-//       case 'banner-2':
-//         cb(null, './images/background-images/Retangulo99.png');
-//       case 'banner-3':
-//         cb(null, './images/background-images/Retangulo100.png');
-//       case 'banner-4':
-//         cb(null, './images/background-images/Retangulo101.png');
-//       default:
-//         return;
-//     }
-//   },
-// });
-
-//ONLY .PNGS
+//ONLY .PNGS - to be added
 const fileFilter = (_req, file, cb) => {
   if (file.mimetype === 'image/png') {
     cb(null, true);

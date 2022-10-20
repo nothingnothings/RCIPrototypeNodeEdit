@@ -10,20 +10,17 @@
                 <div>
                 <form method="POST" action="/logout/?_csrf=<%= csrfToken %>">
                     <button type="submit"  method="POST" class="logout-button">Logout</button>
-
                 </form>
             </div>
         </ul>
         </div>
     </header>
        <main class="login-main">
-
         <section id="banner-edit-section">
     <div class="container pb-5">
         <h1 class="text-dark text-center pt-5">Páginas Principais</h1>
         <div class="row pb-5">
             <div class="col-12 col-md-6 col-lg-6 mb-4 mb-lg-0 my-5 text-center">
-
                 <div class="panel py-5">
                     <h5 class="card-header panel-header">
                         Index Page Banner
@@ -31,12 +28,10 @@
                     <div class="card-body">
                         <div class="card-title instruction-title py-4 mx-lg-5 px-lg-4 text-left">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
                             <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div>
-                    
                         </div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-1" class="file" type="file" name="file" required />
                             <input type="hidden" value="1" id="pageNumber" name="pageNumber">
-
                             <button type="submit" class="form-button login-button mt-5">Enviar</button>
                     </form>
                     </div>
@@ -55,7 +50,6 @@
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation" >
                             <input id="file-2" class="file" type="file" name="file" required />
                             <input type="hidden" value="2" id="pageNumber" name="pageNumber">
-           
                             <button type="submit" class="form-button login-button mt-5">Enviar</button>
                         </form>
                         
@@ -76,7 +70,6 @@
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-3" class="file" type="file" name="file" required/>
                             <input type="hidden" value="3" id="pageNumber" name="pageNumber">
-        
                             <button type="submit" class="form-button login-button mt-5">Enviar</button>
                         </form>
                     </div>
@@ -94,7 +87,6 @@
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-4" class="file" type="file" name="file" required/>
                             <input type="hidden" value="4" id="pageNumber" name="pageNumber">
-                       
                             <button type="submit" class="form-button login-button mt-5">Enviar</button>
                         </form>
                     </div>
@@ -104,12 +96,4 @@
     </div>
 </section>
 </main>
-        <script>
-
-
-
-
-
-
-        </script>
             <%- include('../includes/end.ejs'); %>
