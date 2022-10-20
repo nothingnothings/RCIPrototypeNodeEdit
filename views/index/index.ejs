@@ -6,7 +6,7 @@
     <%- include('../includes/navigation.ejs'); %>
       <main>
 
-        <% if (message !== '' || errorMessage !== '' ) { %>
+        <% if (message || errorMessage ) { %>
             <div class="backdrop"></div>
             <div class="admin-modal <%= errorMessage !== '' ? 'error-modal' : '' %> text-center">
                 <div class="modal-content mt-5 pt-5 mx-5">
