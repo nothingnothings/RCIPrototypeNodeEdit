@@ -3,8 +3,8 @@ const keys = require('../config/keys');
 exports.getStartingPage = (req, res, _next) => {
 
 
-  console.log(req.flash('message'), 'FLASHMESSAGE');
-  console.log(req.flash('errorMessage'), 'FLASHMESSAGEERROR');
+  // console.log(req.flash('message'), 'FLASHMESSAGE');
+  // console.log(req.flash('errorMessage'), 'FLASHMESSAGEERROR');
 
 
   return res.render('index/index', {
