@@ -12,26 +12,32 @@ exports.getStartingPage = (req, res, _next) => {
   //   'LINE'
   // );
 
-  if (req.flash('message') === []) {
-    console.log('ENTERED');
-    message = null;
-  } else {
-    message = req.flash('message')[0];
-  }
 
-  if (req.flash('errorMessage') === []) {
-    errorMessage = null;
-  } else {
-    errorMessage = req.flash('errorMessage')[0];
-  }
+
+   ///////////////////////
+  // if (req.flash('message') === []) {
+  //   console.log('ENTERED');
+  //   message = null;
+  // } else {
+  //   message = req.flash('message')[0];
+  // }
+
+  // if (req.flash('errorMessage') === []) {
+  //   errorMessage = null;
+  // } else {
+  //   errorMessage = req.flash('errorMessage')[0];
+  // }
+
+
+  /////////////////////////////////
 
   return res.render('index/index', {
     path: '/',
     // message: req.flash('message')[0] !== '' ? req.flash('message')[0] : '',
     // errorMessage: req.flash('errorMessage')[0] !== '' ? req.flash('errorMessage')[0] : ''
 
-    message: message,
-    errorMessage: errorMessage
+    message: req.flash('message')[0],
+    errorMessage: req.flash('errorMessage')[0]
   });
 };
 
