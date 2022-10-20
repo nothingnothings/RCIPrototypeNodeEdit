@@ -23,6 +23,7 @@ exports.postLogin = (req, res, next) => {
       if (user === null) {
         if (!errors.isEmpty()) {
           return res.status(422).render('/admin/login', {
+            pageTitle: 'Login Page',
             path: 'admin/login',
             errorMessage: errors.array()[0].msg,
             oldInput: {
@@ -44,9 +45,9 @@ exports.postLogin = (req, res, next) => {
                 res.redirect('/admin/edit-page');
               });
             } else {
-              res.render('/login', {
+              res.render('admin/login', {
                 pageTitle: 'Login Page',
-                path: '/login',
+                path: 'admin/login',
                 errorMessage: errors.array()[0].msg,
                 oldInput: {
                   email: email,
