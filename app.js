@@ -133,11 +133,13 @@ function uploadFile(req, res, next) {
         res.redirect(302, `${pageName}`);
       });
   } else {
-    return res.status(400).send({
-      message: "Pedido negado, imagem ausente ou inválida (permitido apenas o formato .png).",
-      success: false
-  });
+    req.flash(
+      'errorMessage',
+      'Pedido negado, imagem ausente ou inválida (permitido apenas imagens no formato .png).'
+    );
   }
+
+  res.redirect(302, `${pageName}`);
 }
 
 app.use(
