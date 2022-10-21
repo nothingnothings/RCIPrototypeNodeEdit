@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 
 exports.getStartingPage = (req, res, _next) => {
   fs.readFile(
-    path.join(__dirname + '/page-text' + '/page-1' + 'banner-text.txt'),
+    path.join(__dirname + '/page-text' + '/page-1' + '/banner-text.txt'),
     (err, data) => {
       if (err) {
         throw err;
