@@ -29,6 +29,7 @@ exports.getOQueFazemosPage = (req, res, next) => {
 
       res.render('index/o-que-fazemos', {
         path: '/o-que-fazemos',
+        bannerText: data,
         message: req.flash('message')[0],
         errorMessage: req.flash('errorMessage')[0],
       });
@@ -46,6 +47,7 @@ exports.getQuemSomosPage = (req, res, next) => {
 
       res.render('index/quem-somos', {
         path: '/quem-somos',
+        bannerText: data,
         message: req.flash('message')[0],
         errorMessage: req.flash('errorMessage')[0],
       });
@@ -63,6 +65,7 @@ exports.getRCInsightsPage = (req, res, next) => {
 
       res.render('index/RCInsights', {
         path: '/RCInsights',
+        bannerText: data,
         message: req.flash('message')[0],
         errorMessage: req.flash('errorMessage')[0],
       });
