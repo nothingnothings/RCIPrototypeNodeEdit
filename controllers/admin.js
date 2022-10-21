@@ -28,6 +28,8 @@ exports.getAdminPage = (req, res, _next) => {
     });
   });
 
+
+  console.log(bannerPageStringArray);
   res.render('admin/edit-page', {
     path: '/admin/edit-page',
     bannerStringArray: bannerPageStringArray,
