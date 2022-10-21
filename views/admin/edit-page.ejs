@@ -35,6 +35,17 @@
                             <button type="submit" class="form-button login-button mt-5">Enviar</button>
                     </form>
                     </div>
+
+                    <div class="card-body">
+                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Texto do Banner
+                            <!-- <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div> -->
+                        </div>
+                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                            <textarea id="banner-text-1" name="file" required placeholder="<%= bannerStringArray[0] %>" rows="5"></textarea>
+                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                    </form>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6 mb-4 mb-lg-0 my-5 text-center">

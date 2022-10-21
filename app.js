@@ -206,11 +206,11 @@ const serverPort = 8080;
 mongoose
   .connect(MONGODB_URI)
   .then((_result) => {
-    // app.listen(process.env.PORT || serverPort);
-    app.listen(serverPort);
+    app.listen(process.env.PORT || serverPort);
+    // app.listen(serverPort);
   })
   .catch((err) => {
     console.log(err);
   });
 
-// app.listen(serverPort);
+app.listen(serverPort);
