@@ -14,24 +14,21 @@ exports.getAdminPage = (req, res, _next) => {
         }
         bannerPageStringArray.push(file);
 
+        if (err) {
+          console.log(err);
+          throw err;
+        }
 
+        console.log(bannerPageStringArray);
+
+        res.render('admin/edit-page', {
+          path: '/admin/edit-page',
+          bannerStringArray: bannerPageStringArray,
+          pageTitle: 'Admin Edit Site Page',
+          csrfToken: req.csrfToken(),
+        });
       });
     });
-
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-
-    console.log(bannerPageStringArray);
-
-    res.render('admin/edit-page', {
-      path: '/admin/edit-page',
-      bannerStringArray: bannerPageStringArray,
-      pageTitle: 'Admin Edit Site Page',
-      csrfToken: req.csrfToken(),
-    });
-  
   });
 
   // res.render('admin/edit-page', {
