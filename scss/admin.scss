@@ -102,3 +102,17 @@
   border: solid var(--blue);
   border-width: 0 3px 0 0;
 }
+
+/////ADMIN-TEXTAREA
+
+.admin-textarea {
+  min-width: 280px;
+}
+
+/////ADMIN-LINE-DIVISOR
+
+hr.admin-line-divisor {
+  max-width: 80%;
+  border: 1px solid var(--white);
+  background-color: white;
+}

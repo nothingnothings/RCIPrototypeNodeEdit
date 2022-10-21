@@ -26,24 +26,33 @@
                         Index Page Banner
                     </h5>
                     <div class="card-body">
-                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
+                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-center">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
                             <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div>
                         </div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-1" class="file" type="file" name="file" required accept="image/png" />
                             <input type="hidden" value="1" id="pageNumber" name="pageNumber">
-                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-4">
+                                    <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                                </div>
+                            </div>
+                           
                     </form>
                     </div>
-
+                    <hr class="admin-line-divisor">
                     <div class="card-body">
-                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Texto do Banner
-                            <!-- <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div> -->
+                        <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
+                            <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 9-10 palavras, por razões de espaçamento."></div>
                         </div>
                         <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
-                            <textarea id="banner-text-1" name="file" required placeholder="<%= bannerStringArray[0] %>" rows="5"></textarea>
+                            <div class="row">
+                                <div class="col">
+                                    <textarea id="banner-text-1" class="admin-textarea" name="banner-text-1" required placeholder="<%= bannerStringArray[0] %>" rows="5"><%= bannerStringArray[0] %></textarea>
+                                </div>
+                            </div>
                             <input type="hidden" value="1" id="pageNumber" name="pageNumber">
-                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                            <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
                 </div>
@@ -54,16 +63,35 @@
                         Quem Somos Page Banner
                     </h5>
                     <div class="card-body">
-                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
+                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-center">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
                             <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div>
                         
                         </div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation" >
                             <input id="file-2" class="file" type="file" name="file" required accept="image/png"/>
                             <input type="hidden" value="2" id="pageNumber" name="pageNumber">
-                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-4">
+                                    <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                                </div>
+                            </div>
                         </form>
                         
+                    </div>
+                    <hr class="admin-line-divisor">
+                    <div class="card-body">
+                        <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
+                            <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 10-11 palavras, por razões de espaçamento."></div>
+                        </div>
+                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                            <div class="row">
+                                <div class="col">
+                                    <textarea id="banner-text-2" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[1] %>" rows="5"><%= bannerStringArray[1] %></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <button type="submit" class="form-button login-button mt-4">Enviar</button>
+                    </form>
                     </div>
 
                 </div>
@@ -75,14 +103,33 @@
                         O Que Fazemos Page Banner
                     </h5>
                     <div class="card-body">
-                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
+                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-center">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
                             <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div>
                         </div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-3" class="file" type="file" name="file" required accept="image/png"/>
                             <input type="hidden" value="3" id="pageNumber" name="pageNumber">
-                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-4">
+                                    <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                                </div>
+                            </div>
                         </form>
+                    </div>
+                    <hr class="admin-line-divisor">
+                    <div class="card-body">
+                        <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
+                            <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 9-10 palavras, por razões de espaçamento."></div>
+                        </div>
+                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                            <div class="row">
+                                <div class="col">
+                                    <textarea id="banner-text-3" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[2] %>" rows="5"><%= bannerStringArray[2] %></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <button type="submit" class="form-button login-button mt-4">Enviar</button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -92,14 +139,33 @@
                         RCInsights Page Banner
                     </h5>
                     <div class="card-body">
-                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-left">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
+                        <div class="card-title instruction-title py-4 mx-xl-5 px-lg-4 text-center">Atualizar Banner (selecione uma imagem 1920x1080 de formato .png)
                             <div class="admin-warning banner-warning ml-1" title="A troca de banner pode levar alguns instantes até ser processada/visualizada na página!"></div>
                         </div>
                         <form method="POST" action="/admin/banner-edit" enctype="multipart/form-data" class="needs-validation">
                             <input id="file-4" class="file" type="file" name="file" required accept="image/png"/>
                             <input type="hidden" value="4" id="pageNumber" name="pageNumber">
-                            <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-4">
+                                    <button type="submit" class="form-button login-button mt-5">Enviar</button>
+                                </div>
+                            </div>
                         </form>
+                    </div>
+                    <hr class="admin-line-divisor">
+                    <div class="card-body">
+                        <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
+                            <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 12-13 palavras, por razões de espaçamento."></div>
+                        </div>
+                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                            <div class="row">
+                                <div class="col">
+                                    <textarea id="banner-text-4" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[3] %>" rows="5"><%= bannerStringArray[3] %></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <button type="submit" class="form-button login-button mt-4">Enviar</button>
+                    </form>
                     </div>
                 </div>
             </div>

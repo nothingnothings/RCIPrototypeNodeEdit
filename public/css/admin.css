@@ -80,3 +80,11 @@
   width: 3px;
   border: solid var(--blue);
   border-width: 0 3px 0 0; }
+
+.admin-textarea {
+  min-width: 280px; }
+
+hr.admin-line-divisor {
+  max-width: 80%;
+  border: 1px solid var(--white);
+  background-color: white; }

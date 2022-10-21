@@ -24,3 +24,15 @@ exports.getAdminPage = (req, res, _next) => {
     csrfToken: req.csrfToken(),
   });
 };
+
+
+
+
+exports.postBannerText = (req, res, next) => {
+
+  const bannerTextNumber = 'dummy';
+  const bannerText = 'dummy';
+
+
+
+}

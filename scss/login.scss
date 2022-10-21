@@ -8,18 +8,15 @@
   border: 3px solid var(--dark-blue);
 }
 
-
 .login-button {
-    padding: 0.7rem 3rem;
-    font-size: 18px;
-    border-radius: 15px;
-    background-color: var(--white);
+  padding: 0.7rem 2rem;
+  font-size: 18px;
+  border-radius: 15px;
+  background-color: var(--white);
 }
 
 .login-button:hover,
 .login-button:active {
-
-
-    background-color: var(--dark-blue);
-    color: var(--white);
+  background-color: var(--dark-blue);
+  color: var(--white);
 }
