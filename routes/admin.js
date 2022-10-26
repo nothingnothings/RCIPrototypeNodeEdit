@@ -7,6 +7,7 @@ router.get('/edit-page', adminController.getAdminPage);
 
 router.post('/banner-text-edit', adminController.postBannerText);
 
+router.post('/index-info-section-edit', adminController.postStartingPageInfoSection);
 
 // router.post('/example')
 

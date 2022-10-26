@@ -477,7 +477,7 @@ main {
   margin-top: 4rem; }
 
 .info-description__line {
-  margin-bottom: 0; }
+  line-height: 3.5rem; }
 
 .info-link {
   padding: 0.8rem 2.6rem;

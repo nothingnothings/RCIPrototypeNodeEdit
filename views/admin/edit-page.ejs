@@ -40,6 +40,7 @@
                             </div>
                            
                     </form>
+                    
                     </div>
                     <hr class="admin-line-divisor">
                     <div class="card-body">
@@ -53,7 +54,24 @@
                                     <textarea id="banner-text-1" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[0] %>" rows="5"><%= bannerStringArray[0] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="1" id="pageNumber" name="banner-text-number">
+                            <input type="hidden" value="page-1" id="pageNumber" name="banner-text-number">
+                            <button type="submit" class="form-button login-button mt-4">Enviar</button>
+                    </form>
+                    </div>
+
+
+                    <hr class="admin-line-divisor">
+                    <div class="card-body">
+                        <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto da Seção "Info"
+                            <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 20-25 palavras, por razões de espaçamento."></div>
+                        </div>
+                        <form method="POST" action="/admin/index-info-section-edit" class="needs-validation">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <textarea id="index-info-section" class="admin-textarea" name="index-info-section" required placeholder="<%= indexInfoSectionText %>" rows="8"><%= indexInfoSectionText %></textarea>
+                                </div>
+                            </div>
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -92,7 +110,7 @@
                                     <textarea id="banner-text-2" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[1] %>" rows="5"><%= bannerStringArray[1] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="2" name="banner-text-number">
+                            <input type="hidden" value="page-2" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -131,7 +149,7 @@
                                     <textarea id="banner-text-3" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[2] %>" rows="5"><%= bannerStringArray[2] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="3" name="banner-text-number">
+                            <input type="hidden" value="page-3" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -168,7 +186,7 @@
                                     <textarea id="banner-text-4" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[3] %>" rows="5"><%= bannerStringArray[3] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="4" name="banner-text-number">
+                            <input type="hidden" value="page-4" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>

@@ -121,7 +121,6 @@ function uploadFile(req, res, next) {
           'message',
           `Banner da página ${formattedPageName} atualizado com sucesso. Para ver a nova imagem, por favor limpe o cachê desta página.`
         );
-
         res.redirect(302, `${pageName}`);
       })
       .catch((_err) => {
@@ -129,7 +128,6 @@ function uploadFile(req, res, next) {
           'errorMessage',
           `Falha na alteração do Banner da página ${formattedPageName}.`
         );
-
         res.redirect(302, `${pageName}`);
       });
   } else {
@@ -138,7 +136,6 @@ function uploadFile(req, res, next) {
       'Pedido negado, imagem ausente ou inválida (permitido apenas imagens no formato .png).'
     );
   }
-
   res.redirect(302, `${pageName}`);
 }
 
@@ -175,7 +172,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use((req, _res, next) => {
   if (!req.session.user) {
     return next();
@@ -203,10 +199,10 @@ app.use(errorController.error404);
 
 const serverPort = 8080;
 
-
 mongoose
   .connect(MONGODB_URI)
   .then((_result) => {
+    //heroku setup
     // app.listen(process.env.PORT || serverPort);
     app.listen(serverPort);
   })
@@ -214,4 +210,5 @@ mongoose
     console.log(err);
   });
 
+//heroku setup
 // app.listen(serverPort);
