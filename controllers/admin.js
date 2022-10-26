@@ -16,6 +16,7 @@ exports.getAdminPage = (req, res, _next) => {
   });
 
   console.log(bannerPageStringArray);
+  console.log(req.csrfToken());
 
   res.render('admin/edit-page', {
     path: '/admin/edit-page',
@@ -25,14 +26,14 @@ exports.getAdminPage = (req, res, _next) => {
   });
 };
 
-
-
-
 exports.postBannerText = (req, res, next) => {
+  console.log('TEST');
+  console.log(req.body);
+  const bannerTextNumber = req.body.banner-text-number;
+  console.log(bannerTextNumber);
+  // const bannerText = 'dummy';
 
-  const bannerTextNumber = 'dummy';
-  const bannerText = 'dummy';
 
 
-
-}
+  // res.send('data');
+};

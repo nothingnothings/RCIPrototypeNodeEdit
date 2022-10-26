@@ -8,7 +8,8 @@
         <div class="navbar edit-page-navbar bg-secondary">   
              <ul class="navbar-nav ml-auto">
                 <div>
-                <form method="POST" action="/logout/?_csrf=<%= csrfToken %>">
+                <form method="POST" action="/logout">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <button type="submit"  method="POST" class="logout-button">Logout</button>
                 </form>
             </div>
@@ -48,10 +49,11 @@
                         <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
                             <div class="row">
                                 <div class="col">
-                                    <textarea id="banner-text-1" class="admin-textarea" name="banner-text-1" required placeholder="<%= bannerStringArray[0] %>" rows="5"><%= bannerStringArray[0] %></textarea>
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <textarea id="banner-text-1" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[0] %>" rows="5"><%= bannerStringArray[0] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <input type="hidden" value="1" id="pageNumber" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -83,13 +85,14 @@
                         <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
                             <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 10-11 palavras, por razões de espaçamento."></div>
                         </div>
-                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                        <form method="POST" action="/admin/banner-text-edit/?_csrf=<%= csrfToken %>" class="needs-validation">
                             <div class="row">
                                 <div class="col">
-                                    <textarea id="banner-text-2" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[1] %>" rows="5"><%= bannerStringArray[1] %></textarea>
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <textarea id="banner-text-2" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[1] %>" rows="5"><%= bannerStringArray[1] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <input type="hidden" value="2" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -121,13 +124,14 @@
                         <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
                             <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 9-10 palavras, por razões de espaçamento."></div>
                         </div>
-                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                        <form method="POST" action="/admin/banner-text-edit/?_csrf=<%= csrfToken %>" class="needs-validation">
                             <div class="row">
                                 <div class="col">
-                                    <textarea id="banner-text-3" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[2] %>" rows="5"><%= bannerStringArray[2] %></textarea>
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <textarea id="banner-text-3" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[2] %>" rows="5"><%= bannerStringArray[2] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <input type="hidden" value="3" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>
@@ -157,13 +161,14 @@
                         <div class="card-title instruction-title pt-2 pb-4 mx-xl-5 px-lg-4 text-center">Atualizar Texto do Banner
                             <div class="admin-warning banner-warning ml-1" title="Tente restringir seu texto a 12-13 palavras, por razões de espaçamento."></div>
                         </div>
-                        <form method="POST" action="/admin/banner-text-edit" class="needs-validation">
+                        <form method="POST" action="/admin/banner-text-edit/?_csrf=<%= csrfToken %>" class="needs-validation">
                             <div class="row">
                                 <div class="col">
-                                    <textarea id="banner-text-4" class="admin-textarea" name="file" required placeholder="<%= bannerStringArray[3] %>" rows="5"><%= bannerStringArray[3] %></textarea>
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <textarea id="banner-text-4" class="admin-textarea" name="banner-text" required placeholder="<%= bannerStringArray[3] %>" rows="5"><%= bannerStringArray[3] %></textarea>
                                 </div>
                             </div>
-                            <input type="hidden" value="1" id="pageNumber" name="pageNumber">
+                            <input type="hidden" value="4" name="banner-text-number">
                             <button type="submit" class="form-button login-button mt-4">Enviar</button>
                     </form>
                     </div>

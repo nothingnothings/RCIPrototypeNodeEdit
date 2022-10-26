@@ -175,6 +175,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use((req, _res, next) => {
   if (!req.session.user) {
     return next();
@@ -206,11 +207,11 @@ const serverPort = 8080;
 mongoose
   .connect(MONGODB_URI)
   .then((_result) => {
-    app.listen(process.env.PORT || serverPort);
-    // app.listen(serverPort);
+    // app.listen(process.env.PORT || serverPort);
+    app.listen(serverPort);
   })
   .catch((err) => {
     console.log(err);
   });
 
-app.listen(serverPort);
+// app.listen(serverPort);

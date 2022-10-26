@@ -56,28 +56,28 @@
     <script>
 
 
-      var request = new XMLHttpRequest();
-      request.open('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=ENTER-YOUR-ACCESS-TOKEN-HERE&count=8', true);
-      request.onload = function(container) {
-          if (request.status >= 200 && request.status < 400) {
-              var data = JSON.parse(request.responseText);
-              for (var i=0;i < data.data.length;i++) {
-                  var container = document.getElementById('insta-feed');
-                  var imgURL = data.data[i].images.standard_resolution.url;
+      // var request = new XMLHttpRequest();
+      // request.open('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=ENTER-YOUR-ACCESS-TOKEN-HERE&count=8', true);
+      // request.onload = function(container) {
+      //     if (request.status >= 200 && request.status < 400) {
+      //         var data = JSON.parse(request.responseText);
+      //         for (var i=0;i < data.data.length;i++) {
+      //             var container = document.getElementById('insta-feed');
+      //             var imgURL = data.data[i].images.standard_resolution.url;
                 
-                  var div = document.createElement('div');
-                  div.setAttribute('class','instapic');
-                  container.appendChild(div);
-                  var img = document.createElement('img');
-                  img.setAttribute('src',imgURL)
-                  div.appendChild(img);
-              }
+      //             var div = document.createElement('div');
+      //             div.setAttribute('class','instapic');
+      //             container.appendChild(div);
+      //             var img = document.createElement('img');
+      //             img.setAttribute('src',imgURL)
+      //             div.appendChild(img);
+      //         }
  
-          } else { }
-      };
-      request.onerror = function() {
+      //     } else { }
+      // };
+      // request.onerror = function() {
        
-      };
-      request.send();
+      // };
+      // request.send();
               </script>
 
