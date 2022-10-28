@@ -203,12 +203,12 @@ mongoose
   .connect(MONGODB_URI)
   .then((_result) => {
     //heroku setup
-    // app.listen(process.env.PORT || serverPort);
-    app.listen(serverPort);
+    app.listen(process.env.PORT || serverPort);
+    // app.listen(serverPort);
   })
   .catch((err) => {
     console.log(err);
   });
 
 //heroku setup
-// app.listen(serverPort);
+app.listen(serverPort);

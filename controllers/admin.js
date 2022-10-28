@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 exports.getAdminPage = (req, res, _next) => {
   const bannerPageStringArray = [];
+  const indexPerksContent = [];
   const folderNames = fs.readdirSync('page-text/');
 
   folderNames.forEach((folder) => {
@@ -18,12 +19,29 @@ exports.getAdminPage = (req, res, _next) => {
     'utf-8'
   );
 
-  console.log(indexInfoSectiontext, 'EXEMPLO');
+  const indexPerks = fs.readdirSync('page-text/page-1/perks');
+
+  indexPerks.forEach((indexPerk) => {
+    const fileContent = fs.readFileSync(
+      `page-text/page-1/perks/${indexPerk}`,
+      'utf-8'
+    );
+
+    indexPerksContent.push(fileContent);
+  });
+
+  console.log(indexPerksContent);
+
+  const formattedIndexPerks = indexPerks.map((indexPerk) => {
+    return indexPerk.split('.')[0];
+  });
 
   res.render('admin/edit-page', {
     path: '/admin/edit-page',
     bannerStringArray: bannerPageStringArray,
     indexInfoSectionText: indexInfoSectiontext,
+    perks: formattedIndexPerks,
+    perksContent: indexPerksContent,
     pageTitle: 'Admin Edit Site Page',
     csrfToken: req.csrfToken(),
   });
@@ -81,3 +99,5 @@ exports.postStartingPageInfoSection = (req, res, next) => {
 
   res.redirect(302, '/');
 };
+
+exports.postStartingPagePerksEdit = (req, res, next) => {};

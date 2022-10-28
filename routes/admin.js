@@ -9,6 +9,8 @@ router.post('/banner-text-edit', adminController.postBannerText);
 
 router.post('/index-info-section-edit', adminController.postStartingPageInfoSection);
 
+router.post('/index-perks-edit', adminController.postStartingPagePerksEdit);
+
 // router.post('/example')
 
 module.exports = router;
